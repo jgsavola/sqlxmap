@@ -1,0 +1,205 @@
+Käyttötapaukset
+===============
+
+Käyttäjät
+---------
+
+* käyttäjä -- työasemasovelluksen käyttäjä
+
+Muut toimijat
+-------------
+
+* käyttäjäasetukset --- kotihakemistoon tms. tallennettavat
+  asetustiedostot
+* leikepöytä --- käyttöjärjestelmän leikepöytä
+* tietokannat --- PostGIS-tietokannat, joihin kyselyt kohdistetaan
+
+
+Käyttötapaukset
+---------------
+
+1. Käyttäjä käynnistää sovelluksen
+2. Käyttäjä luo uuden tietokantayhteyden
+3. Käyttäjä luo ja suorittaa tietokantakyselyn SQL-ikkunassa
+4. Käyttäjä valitsee ja suorittaa tietokantakyselyn leikepöydän avulla
+5. Käyttäjä tuo geometrioita leikepöydältä kartalle
+6. Käyttäjä tuo geometrioita kartalta leikepöydälle
+7. Käyttäjä sulkee sovelluksen
+
+
+1. Käyttäjä käynnistää sovelluksen
+----------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  käyttäjäasetukset
+
+Toiminta:
+
+  1. Käyttäjä käynnistää sovelluksen.
+  2. Sovellus lukee tietoja käyttäjäasetuksista.
+  3. Sovellus luo ikkunat käyttäjäasetusten mukaisesti.
+
+Poikkeuksellinen toiminta:
+
+  2a. Käyttäjäasetuksia ei voi lukea.
+
+
+2. Käyttäjä luo uuden tietokantayhteyden
+----------------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  käyttäjäasetukset, tietokannat
+
+Toiminta:
+
+  1. Käyttäjä valitsee toiminnon "Luo tietokantayhteys"
+  2. Sovellus luo (mahdollisesti esitäytetyn) kyselylomakkeen,
+     jossa on kentät tietokantayhteyteen tarvittavien tietojen
+     syöttämiseen: tietokantaklusterin isäntäkone, tietokantaklusterin
+     TCP-portti, tietokannan nimi, tietokantaklusterin käyttäjätunnus,
+     tietokantaklusterin salasana.
+  3. Käyttäjä täyttää kentät.
+  4. (valinnainen) Käyttäjä valitsee "Testaa tietokantayhteys".
+  5. (valinnainen) Sovellus luo yhteyden tietokantaan.
+  6. Käyttäjä valitsee "Tallenna tietokantayhteys".
+  7. Sovellus tallentaa tietokantayhteyden tiedot käyttäjäasetuksiin.
+
+Poikkeuksellinen toiminta:
+
+  5b. Yhteyden luominen ei onnistu. Sovellus antaa virheilmoituksen käyttäjälle.
+
+
+3. Käyttäjä luo ja suorittaa tietokantakyselyn SQL-ikkunassa
+------------------------------------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  käyttäjäasetukset, tietokannat
+
+Toiminta:
+
+  1. (valinnainen 1–2) Käyttäjä kirjoittaa SQL-kyselyn SQL-ikkunaan.
+  2. (valinnainen 1–2) Käyttäjä valitsee jonkin vanhan kyselyn.
+  3. (valinnainen) Käyttäjä valitsee tietokantayhteyden.
+  4. Käyttäjä valitsee "Suorita kysely"-toiminnon.
+  5. Sovellus lukee kyselytekstin SQL-ikkunasta.
+  6. Sovellus tekee kyselyn tietokantaan.
+  7. Sovellus lukee kyselyn tuloksen muistiin tulostaulukoksi.
+  8. Sovellus tulkitsee tulostaulukossa mahdollisesti olevien
+     geometriakenttien sisällön ja esittää ne karttaikkunassa.
+  9. (valinnainen) Sovellus muuttaa karttaikkunan koordinaatistoa
+     sellaiseksi, että kyselytaulukon geometrioiden esitys on sopiva
+     (FIXME: mikä on sopiva?).
+
+
+Poikkeuksellinen toiminta:
+
+  6a. Kyselyn tekeminen tietokantaa epäonnistuu. Sovellus näyttää
+      käyttäjälle virheilmoituksen. Käyttäjä siirtyy kohtaan 1.
+
+
+4. Käyttäjä valitsee ja suorittaa tietokantakyselyn leikepöydän avulla
+----------------------------------------------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  käyttäjäasetukset, leikepöytä, tietokannat
+
+Toiminta:
+
+  1. (valinnainen 1–2) Käyttäjä kirjoittaa SQL-kyselyn
+     tekstieditorilla, SQL-hallintatyökalulla yms.
+  2. (valinnainen 1–2) Käyttäjä valitsee jonkin SQL-kyselyn tekstinä
+     jostakin sovelluksesta.
+  3. (valinnainen) Käyttäjä valitsee tietokantayhteyden.
+  4. Käyttäjä valitsee "Suorita kysely"-toiminnon.
+  5. Sovellus lukee kyselyn leikepöydältä.
+  6. Sovellus tekee kyselyn tietokantaan.
+  7. Sovellus lukee kyselyn tuloksen muistiin tulostaulukoksi.
+  8. Sovellus tulkitsee tulostaulukossa mahdollisesti olevien
+     geometriakenttien sisällön ja esittää ne karttaikkunassa.
+  9. (valinnainen) Sovellus muuttaa karttaikkunan koordinaatistoa
+     sellaiseksi, että kyselytaulukon geometrioiden esitys on sopiva
+     (FIXME: mikä on sopiva?).
+
+
+Poikkeuksellinen toiminta:
+
+  6a. Kyselyn tekeminen tietokantaa epäonnistuu. Sovellus näyttää
+      käyttäjälle virheilmoituksen. Käyttäjä siirtyy kohtaan 1.
+
+
+
+5. Käyttäjä tuo geometrioita leikepöydältä kartalle
+---------------------------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  leikepöytä
+
+Toiminta:
+
+  1. Käyttäjä valitsee tekstimuotoisen esityksen geometriasta jossakin
+     sovelluksessa.
+  2. Käyttäjä valitsee "Liitä kohteita"-toiminnon karttaikkunassa.
+  3. Sovellus lukee tekstin leikepöydältä ja koettaa tulkita siitä
+     mahdolliset geometriakohteet.
+  4. Sovellus piirtää geometriat kartalle. (FIXME: karttatasot?)
+
+Poikkeuksellinen toiminta:
+
+  3a. Leikepöydän tekstissä ei ole geometriakohteita. Mitään ei tapahdu.
+     (FIXME: vai virhe?)
+
+
+6. Käyttäjä tuo geometrioita kartalta leikepöydälle
+---------------------------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  leikepöytä
+
+Toiminta:
+
+  1. Käyttäjä valitsee geometriakohteita kartalla.
+  2. Käyttäjä valitsee "Kopioi kohteet"-toiminnon karttaikkunassa.
+  3. Sovellus muuntaa valitut geometriat tekstimuotoon.
+  4. Sovellus sijoittaa geometriatekstit leikepöydälle.
+
+Poikkeuksellinen toiminta:
+
+  ---
+
+
+7. Käyttäjä sulkee sovelluksen
+------------------------------
+
+Käyttäjät:
+  työasemakäyttäjä
+
+Muut toimijat:
+  käyttäjäasetukset
+
+Toiminta:
+
+  1. Käyttäjä valitsee "Sulje sovellus"-toiminnon.
+  2. Sovellus kirjoittaa tietoja käyttäjäasetuksiin.
+  3. Sovellus sulkee ikkunat ja avoimet tietokantayhteydet.
+
+Poikkeuksellinen toiminta:
+
+  ---
