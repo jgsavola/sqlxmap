@@ -1,0 +1,44 @@
+Aihe
+====
+
+SQLxMap --- geometriatietoa sisältävien SQL-kyselyjen visualisoiminen
+
+Kuvaus
+------
+
+Luodaan työasemasovellus, jonka avulla on mahdollista luoda ja tehdä
+SQL-kyselyjä PostgreSQL/PostGIS-tietokantaan ja näyttää tuloksia
+karttaikkunassa. Eri kyselyjen tuloksia hallitaan tasovalikolla, josta
+voi valita näytettävät tasot.
+
+Lisäksi sovelluksessa on tarkoitus käyttää mm. tekstin ja
+karttakohteiden valintaa ja leikepöytää tiedon siirtämiseen
+SQL-kyselyistä kartalle ja kartalta SQL-kyselyihin.
+
+Sovelluksen tulisi myös tukea jatkuvaa käyttöä tallentamalla
+istuntokohtaista tietoa, kuten käytettävät tietokannat ja niiden
+parametrit, tehdyt SQL-kyselyt yms. käyttäjän asetustiedostoihin.
+Tavoitteena on, että käyttäjä voi siirtyä tietokantakyselyistä
+kartalle ja takaisin mahdollisimman pienellä vaivalla.
+
+Geometriatiedon välitys karttanäytöltä SQL-tekstiin ja takaisin
+tapahtuu käyttämällä geometrioiden tekstimuotoista esitystä.
+Vaihtoehtoina ovat Well Known Text (WKT) ja PostGIS:in hexamuotoinen
+versio Well Known Binary:sta (hexWKB):
+
+  http://en.wikipedia.org/wiki/Well-known_text
+
+Jatkokehitys
+------------
+
+Jatkossa ajatuksena on pyrkiä löytämään tehokkaita tapoja yhdistää
+karttakäyttöliittymä paikkatietoa hyödyntäviin SQL-kyselyihin.
+Monissa yleisesti käytössä olevissa karttasovelluksissa graafinen
+käyttöliittymä ja SQL-tietokannat on eristetty toisistaan niin, että
+datan ristiinkäyttö käyttöliittymän ja tietokannan välillä on vaikeaa.
+
+Tämän projektin tavoitteena on pyrkiä mahdollisimman kattavaan
+ortogonaalisuuteen karttanäytön ja tietokannan välillä. Karttatasolla
+ja tietokantakyselyn tuloksella on yleisesti sama rakenne:
+taulu. Taulu-abstraktion avulla on toivottavasti mahdollista rakentaa
+kaksisuuntaisia yhteyksiä karttasovelluksen ja tietokannan välille.
