@@ -28,6 +28,11 @@ versio Well Known Binary:sta (hexWKB):
 
   http://en.wikipedia.org/wiki/Well-known_text
 
+Inspiraationa ominaisuuksille on toiminut OpenJUMP
+(http://www.openjump.org/). Siinä on mahdollista mm. luoda
+karttatasoja vapaasta SQL-kyselystä sekä luoda karttatasoja tekstistä,
+joka koostuu WKT-geometrioista.
+
 Jatkokehitys
 ------------
 
