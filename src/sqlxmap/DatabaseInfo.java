@@ -11,7 +11,7 @@ package sqlxmap;
  * @author jonne
  * 
  */
-class DatabaseInfo {
+public class DatabaseInfo {
     /**
      * Tietokantaklusterin isäntäkoneen nimi tai IP-osoite (oletus localhost).
      */
