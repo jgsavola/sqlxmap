@@ -93,7 +93,7 @@ public class DatabaseInfo {
      * @return JDBC-yhteys-URL.
      */
     public String getJDBCURL() {
-        return "jdbc://" + dbHost + ":" + dbPort + "/" + dbName + "?user=" + dbUser + "&password=" + dbPassword; 
+        return "jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName + "?user=" + dbUser + "&password=" + dbPassword; 
     }
     
     /**
