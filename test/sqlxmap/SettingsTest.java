@@ -5,6 +5,7 @@
 package sqlxmap;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,9 +47,9 @@ public class SettingsTest {
         Settings settings;
 
         DatabaseInfo dbInfo = new DatabaseInfo("testhost", 9999, "testdb", "testuser", "testpass");
-        storeDatabaseSettings(dbInfo);
         
         try {
+            storeDatabaseSettings(dbInfo);
             settings = new Settings(tempDir);
         } catch (Exception ex) {
             Logger.getLogger(SettingsTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,7 +65,7 @@ public class SettingsTest {
                 dbInfo.getJDBCURL().equals(dbInfo2.getJDBCURL()));
     }
     
-    private void storeDatabaseSettings(DatabaseInfo dbInfo) {
+    private void storeDatabaseSettings(DatabaseInfo dbInfo) throws IOException {
         Settings settings;
         try {
             settings = new Settings(tempDir);
