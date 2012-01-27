@@ -4,10 +4,7 @@
  */
 package sqlxmap;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -42,41 +39,33 @@ public class Settings {
         loadDatabaseInfo();
     }
     
-    private void loadDatabaseInfo() {
-        dbInfo = new ArrayList<DatabaseInfo>();
-        
+    private void loadDatabaseInfo() throws IOException {
         File propFile = new File(settingsDirectory, "databases.properties");
-        Properties props = new Properties();
-        try {
-            props.load(new FileInputStream(propFile));
-            DatabaseInfo db = new DatabaseInfo();
-            db.setDbHost(props.getProperty("dbHost"));
-            db.setDbPort(Integer.parseInt(props.getProperty("dbPort")));
-            db.setDbName(props.getProperty("dbName"));
-            db.setDbUser(props.getProperty("dbUser"));
-            db.setDbPassword(props.getProperty("dbPassword"));
 
-            dbInfo.add(db);
-        } catch (IOException ex) {
-            //Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+        dbInfo = new ArrayList<DatabaseInfo>();
+        DatabaseInfo db = new DatabaseInfo();
+
+        try {
+            db.loadFromPropertiesFile(propFile.getPath());
+        } catch (FileNotFoundException ex) {
+            /*
+             * Ei ole virhe, jos properties-tiedostoa ei löydy. Se vain
+             * tarkoittaa, että tietokantayhteyksiä vielä ei ole tallennettu
+             * tälle käyttäjälle.
+             * 
+             * Sen sijaan muut poikkeukset ovat virheitä ja päästetään
+             * ketjua eteenpäin.
+             */
         }
+
+        dbInfo.add(db);
     }
 
-    private void saveDatabaseInfo() {
+    private void saveDatabaseInfo() throws IOException {
         File propFile = new File(settingsDirectory, "databases.properties");
-        Properties props = new Properties();
-        try {
-            DatabaseInfo db = dbInfo.get(0);
-            props.setProperty("dbHost", db.getDbHost());
-            props.setProperty("dbPort", "" + db.getDbPort());
-            props.setProperty("dbName", db.getDbName());
-            props.setProperty("dbUser", db.getDbUser());
-            props.setProperty("dbPassword", db.getDbPassword());
-            //save properties to project root folder
-            props.store(new FileOutputStream(propFile), null);
-        } catch (IOException ex) {
-            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DatabaseInfo db = dbInfo.get(0);
+        
+        db.saveToPropertiesFile(propFile.getPath());
     }
     
     
@@ -84,7 +73,7 @@ public class Settings {
         return dbInfo;
     }
     
-    public void setDbInfo(ArrayList<DatabaseInfo> dbInfo) {
+    public void setDbInfo(ArrayList<DatabaseInfo> dbInfo) throws IOException {
         this.dbInfo = dbInfo;
         
         // Simulate persistent Settings -- save immediately.

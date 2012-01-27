@@ -4,6 +4,15 @@
  */
 package sqlxmap;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * Tietokantayhteyden parametrit.
@@ -176,5 +185,41 @@ public class DatabaseInfo {
         this.dbUser = dbUser;
     }
     
-    
+    /**
+     * Lataa tietokannan asetukset Properties-tiedostosta.
+     * 
+     * @param propertiesFileName Properties-tiedoston nimi.
+     * @throws IOException 
+     */
+    public void loadFromPropertiesFile(String propertiesFileName) throws IOException {
+        File propFile = new File(propertiesFileName);
+        Properties props = new Properties();
+        
+        props.load(new FileInputStream(propFile));
+        DatabaseInfo db = new DatabaseInfo();
+        this.setDbHost(props.getProperty("dbHost"));
+        this.setDbPort(Integer.parseInt(props.getProperty("dbPort")));
+        this.setDbName(props.getProperty("dbName"));
+        this.setDbUser(props.getProperty("dbUser"));
+        this.setDbPassword(props.getProperty("dbPassword"));
+    }
+
+    /**
+     * Tallenna tietokannan asetukset Properties-tiedostoon.
+     * 
+     * @param propertiesFileName Properties-tiedoston nimi.
+     * @throws IOException 
+     */
+    public void saveToPropertiesFile(String propertiesFileName) throws IOException {
+        File propFile = new File(propertiesFileName);
+        Properties props = new Properties();
+
+        props.setProperty("dbHost", this.getDbHost());
+        props.setProperty("dbPort", "" + this.getDbPort());
+        props.setProperty("dbName", this.getDbName());
+        props.setProperty("dbUser", this.getDbUser());
+        props.setProperty("dbPassword", this.getDbPassword());
+
+        props.store(new FileOutputStream(propFile), null);
+    }
 }
