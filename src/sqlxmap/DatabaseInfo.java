@@ -88,6 +88,15 @@ class DatabaseInfo {
     }
 
     /**
+     * Muodostaa JDBC:n yhteys-URL:n.
+     * 
+     * @return JDBC-yhteys-URL.
+     */
+    public String getJDBCURL() {
+        return "jdbc://" + dbHost + ":" + dbPort + "/" + dbName + "?user=" + dbUser + "&password=" + dbPassword; 
+    }
+    
+    /**
      * Asettaa tietokantaklusterin isäntäkoneen.
      * 
      * @param dbHost Tietokantaklusterin isäntäkone.

@@ -58,8 +58,10 @@ public class SettingsTest {
 
         DatabaseInfo dbInfo2 = settings.getDbInfo().get(0);
 
+        System.out.println("dbInfo.getURL: " + dbInfo.getJDBCURL());
+        
         assertTrue("Database settings are persistent.",
-                dbInfo.toString().equals(dbInfo2.toString()));
+                dbInfo.getJDBCURL().equals(dbInfo2.getJDBCURL()));
     }
     
     private void storeDatabaseSettings(DatabaseInfo dbInfo) {
