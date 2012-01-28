@@ -8,6 +8,7 @@ import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.io.ParseException;
+import com.vividsolutions.jts.io.WKBReader;
 import com.vividsolutions.jts.io.WKTReader;
 import java.util.ArrayList;
 
@@ -20,11 +21,13 @@ public class LayerData {
     private Envelope layerEnvelope;
     private GeometryFactory geometryFactory;
     private WKTReader wktReader;
+    private WKBReader wkbReader;
     
     public LayerData() {
         geometries = new ArrayList<Geometry>();
         geometryFactory = new GeometryFactory();
         wktReader = new WKTReader(geometryFactory);
+        wkbReader = new WKBReader(geometryFactory);
     }
     
     public void addGeometry(Geometry geom) {
@@ -32,13 +35,24 @@ public class LayerData {
         extendEnvelope(geom);
     }
     
-    public void addGeometry(String wkt) throws ParseException {
+    public void addWKTGeometry(String wkt) throws ParseException {
         Geometry geom = wktReader.read(wkt);
         if (geom != null) {
             addGeometry(geom);
         }
     }
     
+    public void addWKBGeometry(String hexWKB) throws ParseException {
+        addWKBGeometry(WKBReader.hexToBytes(hexWKB));
+    }
+    
+    public void addWKBGeometry(byte[] wkb) throws ParseException {
+        Geometry geom = wkbReader.read(wkb);
+        if (geom != null) {
+            addGeometry(geom);
+        }
+    }
+
     public void extendEnvelope(Geometry geom) {
         if (layerEnvelope == null) {
             layerEnvelope = new Envelope(geom.getEnvelopeInternal());

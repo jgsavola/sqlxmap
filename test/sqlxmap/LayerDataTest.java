@@ -55,7 +55,7 @@ public class LayerDataTest {
     }
 
     /**
-     * Test of addGeometry method, of class LayerData.
+     * Test of addWKTGeometry method, of class LayerData.
      * 
      * Add one Geometry, test the envelope afterwards.
      */
@@ -73,7 +73,7 @@ public class LayerDataTest {
     }
 
     /**
-     * Test of addGeometry method, of class LayerData.
+     * Test of addWKTGeometry method, of class LayerData.
      * 
      * Add two Geometries, test the envelope afterwards.
      */
@@ -92,7 +92,7 @@ public class LayerDataTest {
     }
 
     /**
-     * Test of addGeometry method, of class LayerData.
+     * Test of addWKTGeometry method, of class LayerData.
      * 
      * Add two WKT Geometries, test envelope afterwards.
      */
@@ -100,8 +100,8 @@ public class LayerDataTest {
     public void testAddGeometry_String_TwoGeometries() throws Exception {
         System.out.println("addGeometry");
         LayerData instance = new LayerData();
-        instance.addGeometry(testWKT1);
-        instance.addGeometry(testWKT2);
+        instance.addWKTGeometry(testWKT1);
+        instance.addWKTGeometry(testWKT2);
         Envelope testEnvelope = new Envelope(0, 200, 0, 200);
 
         assertTrue("addGeometry extends layer's envelope.", 
