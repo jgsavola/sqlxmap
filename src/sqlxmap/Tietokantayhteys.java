@@ -4,12 +4,17 @@
  */
 package sqlxmap;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import com.vividsolutions.jts.io.ParseException;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
+ * Hoitaa tietokantaan liittyvät asiat, kuten yhteyden luomisen ja kyselyt.
+ * 
+ * Tietokantayhteys luo yhdeyden tietokantaan ja suorittaa SQL-kyselyjä.
+ * Kyselyiden tuloksista muodostetaan LayerData-olioita.
+ * 
  * @author jgsavola
  */
 public class Tietokantayhteys {
@@ -20,7 +25,8 @@ public class Tietokantayhteys {
     private Connection connection;
     
     /**
-     * Luokan konstruktori.
+     * Luokan konstruktori. JDBC-yhteyttä ei automaattisesti luoda, vaan sitä
+     * varten pitää kutsua <code>yhdista</code>-metodia.
      * 
      * @param dbInfo Tietokantayhteyden tiedot.
      */
@@ -41,9 +47,81 @@ public class Tietokantayhteys {
         System.out.println("Connection successful!");
     }
 
+    /**
+     * Sulje JDBC-yhteys.
+     * 
+     * @throws SQLException 
+     */
     public void sulje() throws SQLException {
         if (connection != null) {
             connection.close();
+            connection = null;
         }
+    }
+    
+    /**
+     * Suorita annettu SQL-kysely ja luo siitä LayerData-olio.
+     * 
+     * Tässä versiossa kyselystä tunnistetaan ja luetaan ainoastaan
+     * yksi <code>geometry</code>-tyyppinen sarake.
+     * 
+     * @param SQL Suoritettava SQL-kysely merkkijonona.
+     * @return LayerData-olio, jossa on kyselyn tulosjoukko.
+     * @throws SQLException 
+     */
+    public LayerData teeKysely(String SQL) throws SQLException {
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        int geometryColumnNum = 0;
+        String geometryColumnTypeName = null;
+        
+        /**
+         * Analysoi tulosjoukon tyyppi. Ainakin olemme kiinnostuneita kentistä,
+         * jotka voivat sisältää geometriatietoa. Jos tulosjoukossa on
+         * kenttiä, joiden tyyppi on "geometry", tapaus on selvä. Sen sijaan
+         * on vaikeampi tunnistaa teksti- tai (binaari)tyyppisiä kenttiä
+         * geometriakentiksi. Ehkä käyttäjän pitäisi auttaa jotenkin?
+         * 
+         * Ratkaisutapoja:
+         * 
+         * 1. Sopia geometriakentän nimi?
+         * 2. Hakea ensimmäinen rivi ja yrittää tunnistaa geometrioita?
+         *    Hauras tapa, mutta voisi toimia 99% tapauksista.
+         *    Kentän arvo on NULL ==> epätosi negatiivinen,
+         *    kentässä on sattumalta geometria ==> epätosi positiivinen) 
+         * 
+         * FIXME: tästä kannattaisi tehdä oma luokkansa, niin saisi 
+         *        monimutkaisuuden piiloon.
+         */
+        ResultSetMetaData rsmd = rs.getMetaData();
+        for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+            String columnTypeName = rsmd.getColumnTypeName(i);
+            int columnType        = rsmd.getColumnType(i);
+            String columnName     = rsmd.getColumnName(i);
+            
+            if ("geometry".equals(columnTypeName)) {
+                geometryColumnNum = i;
+                geometryColumnTypeName = "WKB";
+            }
+            
+            System.out.println("ColumnName: " + columnName + ", ColumnType: " + columnTypeName + "(" + columnType + ")");
+        }
+
+        LayerData ld = new LayerData();        
+        while (rs.next()) {
+            String geometry = rs.getString(geometryColumnNum);
+            System.out.println("rivi: " + geometry);
+            try {
+                if ("WKB".equals(geometryColumnTypeName)) {
+                    ld.addWKBGeometry(geometry);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(Tietokantayhteys.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        System.out.println("layerData envelope: " + ld.getEnvelope());
+        
+        return ld;
     }
 }

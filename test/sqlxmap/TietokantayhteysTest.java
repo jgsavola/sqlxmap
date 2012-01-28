@@ -61,4 +61,21 @@ public class TietokantayhteysTest {
             Logger.getLogger(TietokantayhteysTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @Test
+    public void testTeeKysely() {
+        Tietokantayhteys yhteys = new Tietokantayhteys(testDbInfo);
+        try {
+            yhteys.yhdista();
+        } catch (Exception e) {
+            fail("Tietokantayhteyden muodostaminen epäonnistui.");
+        }
+        
+        try {
+            LayerData ld = yhteys.teeKysely("SELECT text1, the_geom FROM miljoona.cityp LIMIT 10");
+        } catch (SQLException ex) {
+            Logger.getLogger(TietokantayhteysTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Tietokantakysely epäonnistui.");
+        }
+    }
 }
