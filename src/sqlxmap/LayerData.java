@@ -11,12 +11,13 @@ import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKBReader;
 import com.vividsolutions.jts.io.WKTReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
  * @author jonne
  */
-public class LayerData {
+public class LayerData implements Iterable<Geometry> {
     private ArrayList<Geometry> geometries;
     private Envelope layerEnvelope;
     private GeometryFactory geometryFactory;
@@ -63,5 +64,10 @@ public class LayerData {
 
     public Envelope getEnvelope() {
         return layerEnvelope;
+    }
+
+    @Override
+    public Iterator<Geometry> iterator() {
+        return geometries.iterator();
     }
 }
