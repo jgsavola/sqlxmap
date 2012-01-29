@@ -4,6 +4,13 @@
  */
 package sqlxmap.ui;
 
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.io.ParseException;
+import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sqlxmap.LayerData;
+
 /**
  *
  * @author jonne
@@ -15,6 +22,11 @@ public class SQLxMapApp extends javax.swing.JFrame {
      */
     public SQLxMapApp() {
         initComponents();
+
+        /*
+         * Testausta varten.
+         */
+        addTestLayerData();
     }
 
     /**
@@ -52,6 +64,14 @@ public class SQLxMapApp extends javax.swing.JFrame {
         statusTextField.setEditable(false);
         statusTextField.setText("status");
 
+        mapPanel.setBackground(new java.awt.Color(0, 0, 0));
+        mapPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                mapPanelMouseMoved(evt);
+            }
+        });
+
         javax.swing.GroupLayout mapPanelLayout = new javax.swing.GroupLayout(mapPanel);
         mapPanel.setLayout(mapPanelLayout);
         mapPanelLayout.setHorizontalGroup(
@@ -60,7 +80,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
         );
         mapPanelLayout.setVerticalGroup(
             mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 155, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         fileMenu.setMnemonic('f');
@@ -131,7 +151,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(statusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+            .addComponent(statusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -150,6 +170,16 @@ public class SQLxMapApp extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void mapPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapPanelMouseMoved
+        DecimalFormat f = new DecimalFormat("##.00");
+        Coordinate c = mapPanel.transformCoordinatesWindowToWorld(evt.getX(), evt.getY());
+        Coordinate wc = mapPanel.transformCoordinatesWorldToWindow(c);
+
+        statusTextField.setText(evt.getX() + " " + evt.getY()
+                + " (" + f.format(c.x) + ", " + f.format(c.y) + ")"
+                + " (" + f.format(wc.x) + "," + f.format(wc.y) + ")");
+    }//GEN-LAST:event_mapPanelMouseMoved
 
     /**
      * @param args the command line arguments
@@ -211,4 +241,20 @@ public class SQLxMapApp extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JTextField statusTextField;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * Luo muutama karttakohde karttatasojen piirtämisen testaamista varten.
+     */
+    private void addTestLayerData() {
+        LayerData ld = new LayerData();
+        try {
+            ld.addWKTGeometry("POINT(500000 6850000)");
+            ld.addWKTGeometry("POINT(504000 6890000)");
+            ld.addWKTGeometry("POINT(502000 6870000)");
+            ld.addWKTGeometry("POINT(503000 6880000)");
+        } catch (ParseException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mapPanel.addLayerData(ld);
+    }
 }

@@ -4,17 +4,69 @@
  */
 package sqlxmap.ui;
 
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.Envelope;
+import com.vividsolutions.jts.geom.Geometry;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import sqlxmap.LayerData;
+
 /**
  *
  * @author jonne
  */
 public class MapPanel extends javax.swing.JPanel {
+    private ArrayList<LayerData> layerDataList;
+    Envelope envelope;
 
     /**
      * Creates new form MapPanel
      */
     public MapPanel() {
         initComponents();
+
+        layerDataList = new ArrayList<LayerData>();
+        envelope = new Envelope();
+    }
+
+    /**
+     * Lisää karttataso piirrettävien karttatasojen joukkoon.
+     *
+     * @param layerData Lisättävä karttataso.
+     */
+    public void addLayerData(LayerData layerData) {
+        layerDataList.add(layerData);
+        envelope.expandToInclude(layerData.getEnvelope());
+        /**
+         * TODO: Piirrä karttaikkuna uudestaan.
+         */
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+        Color color = new Color(255, 0, 0);
+        g2.setColor(color);
+        g2.setStroke(new BasicStroke(2));
+
+        for (LayerData layerData : layerDataList) {
+            System.out.println("drawing layer " + layerData.getEnvelope());
+
+            for (Geometry geometry : layerData) {
+                System.out.println("Geometry: " + geometry);
+
+                for (Coordinate c : geometry.getCoordinates()) {
+                    int w = 5;
+
+                    Coordinate wc = transformCoordinatesWorldToWindow(c);
+                    g2.drawOval((int)wc.x - w / 2, (int)wc.y - w / 2, w, w);
+                    System.out.println("wc: " + wc);
+                }
+            }
+        }
     }
 
     /**
@@ -25,6 +77,8 @@ public class MapPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -39,4 +93,30 @@ public class MapPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    Coordinate transformCoordinatesWindowToWorld(double x, double y) {
+        Coordinate c = new Coordinate();
+
+        c.x = x / (double)this.getWidth() * envelope.getWidth() + envelope.getMinX();
+        c.y = (double)(this.getHeight() - y - 1) / (double)this.getHeight() * envelope.getHeight() + envelope.getMinY();
+
+        return c;
+    }
+
+    Coordinate transformCoordinatesWindowToWorld(int x, int y) {
+        return transformCoordinatesWindowToWorld((double)x, (double)y);
+    }
+
+    Coordinate transformCoordinatesWindowToWorld(Coordinate c) {
+        return transformCoordinatesWindowToWorld(c.x, c.y);
+    }
+
+    Coordinate transformCoordinatesWorldToWindow(Coordinate c) {
+        Coordinate wc = new Coordinate();
+
+        wc.x = (c.x - envelope.getMinX()) / envelope.getWidth() * (double)this.getWidth();
+        wc.y = (envelope.getMaxY() - c.y) / envelope.getHeight() * (double)this.getHeight() - 1.0;
+
+        return wc;
+    }
 }
