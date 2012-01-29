@@ -11,8 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author jonne
+ * Tallenna ja lataa käyttäjäasetuksia.
+ * 
+ * <code>Settings</code> huolehtii käyttäjäkohtaisten asetusten lukemistesta
+ * ja tallentamisesta. Oletussijainti tallennettaville tiedostoille on
+ * käyttäjän kotihakemisto (<code>user.home</code>).
+ * 
+  * @author jonne
  */
 public class Settings {
     private String settingsDirectory;

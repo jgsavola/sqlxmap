@@ -13,6 +13,15 @@ import java.util.ArrayList;
 import sqlxmap.LayerData;
 
 /**
+ * Karttaikkuna karttatasojen näyttämiseen.
+ * 
+ * <code>MapPanel</code> piirtää siihen liitettyjen
+ * <code>LayerData</code>-olioiden geometriat karttaikkunaan.
+ * 
+ * Karttaikkuna ylläpitää karttanäkymän sijantitietoa. Tässä versiossa
+ * ikkuna kattaa karttatasojen ympäröivän suorakaiteen, eli karttakohteet
+ * on skaalattu niin, että kaikki kohteet näkyvät aina ikkunassa mittakaavasta
+ * riippumatta.
  *
  * @author jonne
  */

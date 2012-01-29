@@ -12,7 +12,11 @@ import java.util.logging.Logger;
 import sqlxmap.LayerData;
 
 /**
- *
+ * Graafinen käyttöliittymä sovellukselle.
+ * 
+ * Yksinkertainen Swing-käyttöliittymä, jossa on valikko, työkalupalkki,
+ * karttaikkuna (<code>MapPanel</code>) ja statustekstikenttä.
+ * 
  * @author jonne
  */
 public class SQLxMapApp extends javax.swing.JFrame {

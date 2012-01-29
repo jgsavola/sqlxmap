@@ -14,7 +14,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- *
+ * Hallinnoi SQL-kyselyn tulostaulua.
+ * 
+ * Tässä versiossa SQL-kyselystä otetaan vain geometriat. <code>LayerData</code>
+ * ylläpitää listaa geometrioista ja niiden ympäröivästä suorakaiteesta.
+ * Geometriatietoja voi käyttää toistaiseksi vain <code>Iterable</code>-rajapinnan
+ * kautta.
+ * 
  * @author jonne
  */
 public class LayerData implements Iterable<Geometry> {
