@@ -62,6 +62,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(700, 700));
 
         jToolBar1.setRollover(true);
 
@@ -69,7 +70,6 @@ public class SQLxMapApp extends javax.swing.JFrame {
         statusTextField.setText("status");
 
         mapPanel.setBackground(new java.awt.Color(0, 0, 0));
-        mapPanel.setPreferredSize(new java.awt.Dimension(400, 300));
         mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 mapPanelMouseMoved(evt);
