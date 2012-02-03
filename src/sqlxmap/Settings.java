@@ -24,11 +24,11 @@ public class Settings {
     private ArrayList<DatabaseInfo> dbInfo;
 
             
-    Settings() throws Exception {
+    public Settings() throws Exception {
         load(System.getProperty("user.home"));
     }
     
-    Settings(String settingsDirectory) throws Exception {
+    public Settings(String settingsDirectory) throws Exception {
         load(settingsDirectory);
     }
     
