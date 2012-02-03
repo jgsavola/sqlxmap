@@ -6,11 +6,14 @@ package sqlxmap.ui;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.io.ParseException;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sqlxmap.DatabaseInfo;
 import sqlxmap.LayerData;
 import sqlxmap.Settings;
+import sqlxmap.Tietokantayhteys;
 
 /**
  * Graafinen käyttöliittymä sovellukselle.
@@ -258,6 +261,33 @@ public class SQLxMapApp extends javax.swing.JFrame {
      */
     private void addTestLayerData() {
         LayerData ld = new LayerData();
+
+        /**
+         * Hae ensimmäisen tietokantayhteyden tiedot.
+         * 
+         * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
+         */
+        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
+        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+        try {
+            String[] testikyselyt = {
+                "SELECT the_geom FROM miljoona.cityp",
+                "SELECT the_geom FROM miljoona.railway",
+                "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 30000"
+            };
+            
+            yhteys.yhdista();
+
+            for (String SQL : testikyselyt) {
+                LayerData kyselyData = yhteys.teeKysely(SQL);
+                mapPanel.addLayerData(kyselyData);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
         try {
             ld.addWKTGeometry("POINT(500000 6850000)");
             ld.addWKTGeometry("POINT(504000 6890000)");
