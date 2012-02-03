@@ -110,7 +110,7 @@ public class Tietokantayhteys {
         LayerData ld = new LayerData();        
         while (rs.next()) {
             String geometry = rs.getString(geometryColumnNum);
-            System.out.println("rivi: " + geometry);
+//            System.out.println("rivi: " + geometry);
             try {
                 if ("WKB".equals(geometryColumnTypeName)) {
                     ld.addWKBGeometry(geometry);

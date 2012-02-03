@@ -65,14 +65,14 @@ public class MapPanel extends javax.swing.JPanel {
             System.out.println("drawing layer " + layerData.getEnvelope());
 
             for (Geometry geometry : layerData) {
-                System.out.println("Geometry: " + geometry);
+//                System.out.println("Geometry: " + geometry);
 
                 for (Coordinate c : geometry.getCoordinates()) {
                     int w = 5;
 
                     Coordinate wc = transformCoordinatesWorldToWindow(c);
                     g2.drawOval((int)wc.x - w / 2, (int)wc.y - w / 2, w, w);
-                    System.out.println("wc: " + wc);
+//                    System.out.println("wc: " + wc);
                 }
             }
         }
