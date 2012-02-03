@@ -26,12 +26,14 @@ import sqlxmap.Tietokantayhteys;
 public class SQLxMapApp extends javax.swing.JFrame {
     private Settings settings;
     
-    
     /**
      * Creates new form SQLxMapApp
      */
     public SQLxMapApp() {
         initComponents();
+
+        mapPanel.requestFocusInWindow();
+        
         try {
             settings = new Settings();
         } catch (Exception ex) {
@@ -73,6 +75,11 @@ public class SQLxMapApp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
         setPreferredSize(new java.awt.Dimension(700, 700));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jToolBar1.setRollover(true);
 
@@ -83,6 +90,11 @@ public class SQLxMapApp extends javax.swing.JFrame {
         mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 mapPanelMouseMoved(evt);
+            }
+        });
+        mapPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mapPanelKeyPressed(evt);
             }
         });
 
@@ -194,6 +206,20 @@ public class SQLxMapApp extends javax.swing.JFrame {
                 + " (" + f.format(c.x) + ", " + f.format(c.y) + ")"
                 + " (" + f.format(wc.x) + "," + f.format(wc.y) + ")");
     }//GEN-LAST:event_mapPanelMouseMoved
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        System.out.println("formKeyPressed: '" + evt.getKeyChar() + "'");
+    }//GEN-LAST:event_formKeyPressed
+
+    private void mapPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mapPanelKeyPressed
+        System.out.println("mapPanelKeyPressed: '" + evt.getKeyChar() + "'");
+        if (evt.getKeyChar() == 'a') {
+            mapPanel.envelope.expandBy(20000);         
+        } else if (evt.getKeyChar() == 's') {
+            mapPanel.envelope.expandBy(-20000);
+        }
+        mapPanel.repaint();
+    }//GEN-LAST:event_mapPanelKeyPressed
 
     /**
      * @param args the command line arguments
