@@ -56,13 +56,21 @@ public class MapPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        Color[] colors = {
+                            new Color(255, 50, 50),
+                            new Color(50, 255, 50),
+                            new Color(255, 50, 255),
+                            new Color(255, 255, 255)
+        };
         Graphics2D g2 = (Graphics2D)g;
-        Color color = new Color(255, 0, 0);
-        g2.setColor(color);
         g2.setStroke(new BasicStroke(2));
 
+        int n = 0;
         for (LayerData layerData : layerDataList) {
             System.out.println("drawing layer " + layerData.getEnvelope());
+
+            Color color = colors[n % colors.length];
+            g2.setColor(color);
 
             for (Geometry geometry : layerData) {
 //                System.out.println("Geometry: " + geometry);
@@ -75,6 +83,7 @@ public class MapPanel extends javax.swing.JPanel {
 //                    System.out.println("wc: " + wc);
                 }
             }
+            n++;
         }
     }
 
