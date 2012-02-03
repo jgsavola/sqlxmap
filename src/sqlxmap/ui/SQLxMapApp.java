@@ -10,6 +10,7 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sqlxmap.LayerData;
+import sqlxmap.Settings;
 
 /**
  * Graafinen käyttöliittymä sovellukselle.
@@ -20,13 +21,19 @@ import sqlxmap.LayerData;
  * @author jonne
  */
 public class SQLxMapApp extends javax.swing.JFrame {
-
+    private Settings settings;
+    
+    
     /**
      * Creates new form SQLxMapApp
      */
     public SQLxMapApp() {
         initComponents();
-
+        try {
+            settings = new Settings();
+        } catch (Exception ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         /*
          * Testausta varten.
          */
