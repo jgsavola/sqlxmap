@@ -273,7 +273,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
 
     private void kyselyikkunaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kyselyikkunaButtonActionPerformed
         System.out.println("Kysely");
-        Kyselyikkuna kyselyikkuna = new Kyselyikkuna();
+        Kyselyikkuna kyselyikkuna = new Kyselyikkuna(mapPanel, settings);
         kyselyikkuna.setVisible(true);
     }//GEN-LAST:event_kyselyikkunaButtonActionPerformed
 

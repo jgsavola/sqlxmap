@@ -4,19 +4,36 @@
  */
 package sqlxmap.ui;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sqlxmap.DatabaseInfo;
+import sqlxmap.LayerData;
+import sqlxmap.Settings;
+import sqlxmap.Tietokantayhteys;
+
 /**
  *
  * @author jgsavola
  */
 public class Kyselyikkuna extends javax.swing.JFrame {
-
+    private MapPanel mapPanel;
+    private Settings settings;
+    
     /**
      * Creates new form Kyselyikkuna
      */
+    public Kyselyikkuna(MapPanel mapPanel, Settings settings) {
+        initComponents();
+        this.mapPanel = mapPanel;
+        this.settings = settings;
+    }
+
     public Kyselyikkuna() {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +90,26 @@ public class Kyselyikkuna extends javax.swing.JFrame {
     private void suoritaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suoritaButtonActionPerformed
         String kysely = kyselyEditorPane.getText();
         System.out.println("kysely: " + kysely);
+        
+        /**
+         * Hae ensimmäisen tietokantayhteyden tiedot.
+         * 
+         * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
+         */
+        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
+        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+        try {
+            yhteys.yhdista();
+
+            LayerData kyselyData = yhteys.teeKysely(kysely);
+            mapPanel.addLayerData(kyselyData);
+            mapPanel.repaint();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_suoritaButtonActionPerformed
 
     /**
