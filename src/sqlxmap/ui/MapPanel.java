@@ -9,6 +9,7 @@ import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.geom.Geometry;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import com.vividsolutions.jts.geom.util.AffineTransformation;
 import java.util.ArrayList;
 import sqlxmap.LayerData;
 
@@ -27,7 +28,13 @@ import sqlxmap.LayerData;
  */
 public class MapPanel extends javax.swing.JPanel {
     private ArrayList<LayerData> layerDataList;
-    Envelope envelope;
+    private Envelope envelope;
+    /**
+     * Tämä määrittelee koordinaatistomuunnoksen karttakoordinaateista
+     * piirtoikkunan pikselikoordinaatteihin.
+     */
+    private AffineTransformation affine;
+    private boolean shownAlready = false;
 
     /**
      * Creates new form MapPanel
@@ -37,6 +44,8 @@ public class MapPanel extends javax.swing.JPanel {
 
         layerDataList = new ArrayList<LayerData>();
         envelope = new Envelope();
+        affine = new AffineTransformation();
+        resetAffineTransformation();
     }
 
     /**
@@ -47,14 +56,47 @@ public class MapPanel extends javax.swing.JPanel {
     public void addLayerData(LayerData layerData) {
         layerDataList.add(layerData);
         envelope.expandToInclude(layerData.getEnvelope());
+        resetAffineTransformation();
         /**
          * TODO: Piirrä karttaikkuna uudestaan.
          */
     }
 
+    public Envelope getEnvelope() {
+        return this.envelope;
+    }
+    
+    public void setEnvelope(Envelope envelope) {
+        this.envelope = envelope;
+        resetAffineTransformation();
+    }
+    
+    public Envelope envelopeExpandToInclude(Envelope envelope) {
+        this.envelope.expandToInclude(envelope);
+        resetAffineTransformation();
+
+        return this.envelope;
+    }
+    
+    /**
+     * Muodosta uudelleen affinimuunnos, jolla geometrioiden koordinaatit
+     * muunnetaan maailman koordinaateista ikkunakoordinatteihin.
+     * 
+     * Käytetään ikkunan kokona mapPanel-ikkunan kokoa.
+     */
+    private void resetAffineTransformation() {
+        AffineTransformation scale = new AffineTransformation();
+        scale.setToScale(1.0 / (envelope.getWidth() / this.getWidth()),
+                         -1.0 / (envelope.getHeight() / this.getHeight()));
+        affine.setToTranslation(-envelope.getMinX(), -envelope.getMaxY());
+        affine.compose(scale);
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        long startNano = java.lang.System.nanoTime();
 
         Color[] colors = {
                             new Color(255, 50, 50, 200),
@@ -67,24 +109,65 @@ public class MapPanel extends javax.swing.JPanel {
 
         int n = 0;
         for (LayerData layerData : layerDataList) {
-            System.out.println("drawing layer " + layerData.getEnvelope());
-
             Color color = colors[n % colors.length];
             g2.setColor(color);
 
             for (Geometry geometry : layerData) {
-//                System.out.println("Geometry: " + geometry);
+                /**
+                 * Ei piirretä ulkopuolelle jääviä kuvioita.
+                 */
+                if (!envelope.intersects(geometry.getEnvelopeInternal())) {
+                    continue;
+                }
 
-                for (Coordinate c : geometry.getCoordinates()) {
-                    int w = 5;
+                if (geometry.getGeometryType().equals("LineString") 
+                        || geometry.getGeometryType().equals("Polygon")) {
+                    int[] x = new int[geometry.getNumPoints()];
+                    int[] y = new int[geometry.getNumPoints()];
+                    int i = 0;
+                    
 
-                    Coordinate wc = transformCoordinatesWorldToWindow(c);
-                    g2.drawOval((int)wc.x - w / 2, (int)wc.y - w / 2, w, w);
-//                    System.out.println("wc: " + wc);
+                    /**
+                     * Testaa koordinaatistomuunnosta kahdella tavalla:
+                     * 
+                     * 1. transformCoordinatesWorldToWindow-metodi, erikseen
+                     *    jokaiselle koordinaattipisteelle.
+                     * 2. JTS:n affiininen muunnos, geometria-kohde kerrallaan.
+                     * 
+                     * Valitettavasti näyttää siltä, että JTS:n muunnos on 
+                     * hitaampi, vaikka sillä olisi teoriassa enemmän 
+                     * mahdollisuuksia optimointiin.
+                     */
+                    if (false) {
+                        for (Coordinate c : geometry.getCoordinates()) {
+                            Coordinate wc = transformCoordinatesWorldToWindow(c);
+                            x[i] = (int)wc.x;
+                            y[i] = (int)wc.y;
+                            i++;
+                        }
+                    } else {
+                        Geometry geom2 = affine.transform(geometry);
+                        for (Coordinate c : geom2.getCoordinates()) {
+                            x[i] = (int)c.x;
+                            y[i] = (int)c.y;
+                            i++;
+                        }
+                    }
+                    g2.drawPolyline(x, y, i);
+                } else {
+                    for (Coordinate c : geometry.getCoordinates()) {
+                        int w = 5;
+
+                        Coordinate wc = transformCoordinatesWorldToWindow(c);
+                        g2.drawOval((int)wc.x - w / 2, (int)wc.y - w / 2, w, w);
+                    }
                 }
             }
             n++;
         }
+        long stopNano = java.lang.System.nanoTime();
+
+        g2.drawString("repaint: " + (stopNano - startNano) / 1.e6 + "ms", 0, 20);
     }
 
     /**
@@ -97,6 +180,11 @@ public class MapPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,6 +197,12 @@ public class MapPanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        resetAffineTransformation();
+        this.repaint();
+    }//GEN-LAST:event_formComponentResized
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 
@@ -136,5 +230,9 @@ public class MapPanel extends javax.swing.JPanel {
         wc.y = (envelope.getMaxY() - c.y) / envelope.getHeight() * (double)this.getHeight() - 1.0;
 
         return wc;
+    }
+
+    Iterable<LayerData> getLayerDataList() {
+        return layerDataList;
     }
 }

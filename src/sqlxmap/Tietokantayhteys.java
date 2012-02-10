@@ -104,7 +104,7 @@ public class Tietokantayhteys {
                 geometryColumnTypeName = "WKB";
             }
             
-            System.out.println("ColumnName: " + columnName + ", ColumnType: " + columnTypeName + "(" + columnType + ")");
+//            System.out.println("ColumnName: " + columnName + ", ColumnType: " + columnTypeName + "(" + columnType + ")");
         }
 
         LayerData ld = new LayerData();        
