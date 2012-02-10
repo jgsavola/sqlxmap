@@ -15,6 +15,7 @@ import sqlxmap.DatabaseInfo;
 import sqlxmap.LayerData;
 import sqlxmap.Settings;
 import sqlxmap.Tietokantayhteys;
+import sun.security.krb5.internal.KDCOptions;
 
 /**
  * Graafinen käyttöliittymä sovellukselle.
@@ -56,6 +57,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        kyselyikkunaButton = new javax.swing.JButton();
         statusTextField = new javax.swing.JTextField();
         mapPanel = new sqlxmap.ui.MapPanel();
         menuBar = new javax.swing.JMenuBar();
@@ -83,6 +85,17 @@ public class SQLxMapApp extends javax.swing.JFrame {
         });
 
         jToolBar1.setRollover(true);
+
+        kyselyikkunaButton.setText("Tietokantakysely");
+        kyselyikkunaButton.setFocusable(false);
+        kyselyikkunaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        kyselyikkunaButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        kyselyikkunaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kyselyikkunaButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(kyselyikkunaButton);
 
         statusTextField.setEditable(false);
         statusTextField.setText("status");
@@ -258,6 +271,12 @@ public class SQLxMapApp extends javax.swing.JFrame {
         mapPanel.repaint();
     }//GEN-LAST:event_mapPanelKeyPressed
 
+    private void kyselyikkunaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kyselyikkunaButtonActionPerformed
+        System.out.println("Kysely");
+        Kyselyikkuna kyselyikkuna = new Kyselyikkuna();
+        kyselyikkuna.setVisible(true);
+    }//GEN-LAST:event_kyselyikkunaButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +329,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton kyselyikkunaButton;
     private sqlxmap.ui.MapPanel mapPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
