@@ -57,10 +57,10 @@ public class MapPanel extends javax.swing.JPanel {
         super.paintComponent(g);
 
         Color[] colors = {
-                            new Color(255, 50, 50),
-                            new Color(50, 255, 50),
-                            new Color(255, 50, 255),
-                            new Color(255, 255, 255)
+                            new Color(255, 50, 50, 200),
+                            new Color(50, 255, 50, 200),
+                            new Color(255, 50, 255, 200),
+                            new Color(255, 255, 255, 200)
         };
         Graphics2D g2 = (Graphics2D)g;
         g2.setStroke(new BasicStroke(2));
