@@ -334,9 +334,10 @@ public class SQLxMapApp extends javax.swing.JFrame {
         Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
         try {
             String[] testikyselyt = {
-                "SELECT the_geom FROM miljoona.cityp",
+                "SELECT the_geom FROM miljoona.maaku1_p",
+                "SELECT the_geom FROM miljoona.coast_l",
                 "SELECT the_geom FROM miljoona.railway",
-                "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 30000"
+                "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 3000"
             };
             
             yhteys.yhdista();
@@ -352,10 +353,7 @@ public class SQLxMapApp extends javax.swing.JFrame {
         }
                 
         try {
-            ld.addWKTGeometry("POINT(500000 6850000)");
-            ld.addWKTGeometry("POINT(504000 6890000)");
-            ld.addWKTGeometry("POINT(502000 6870000)");
-            ld.addWKTGeometry("POINT(503000 6880000)");
+            ld.addWKTGeometry("POINT(500000 7000000)");
         } catch (ParseException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
