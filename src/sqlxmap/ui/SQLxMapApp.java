@@ -5,6 +5,7 @@
 package sqlxmap.ui;
 
 import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.io.ParseException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -212,11 +213,47 @@ public class SQLxMapApp extends javax.swing.JFrame {
     }//GEN-LAST:event_formKeyPressed
 
     private void mapPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mapPanelKeyPressed
-        System.out.println("mapPanelKeyPressed: '" + evt.getKeyChar() + "'");
-        if (evt.getKeyChar() == 'a') {
-            mapPanel.envelope.expandBy(20000);         
-        } else if (evt.getKeyChar() == 's') {
-            mapPanel.envelope.expandBy(-20000);
+        Logger.getLogger(SQLxMapApp.class.getName()).log(Level.FINE, "mapPanelKeyPressed: ''{0}'' ({1})", 
+                new Object[]{evt.getKeyChar(), evt.getKeyCode()});
+        
+        Envelope envelope = new Envelope(mapPanel.getEnvelope());
+        
+        switch(evt.getKeyCode()) {
+            case 65:
+            case 45:
+                envelope.expandBy(20000);
+                break;
+            case 521:
+            case 83:
+                envelope.expandBy(-20000);
+                break;
+            case 75:
+            case 38:
+                envelope.translate(0, 20000);
+                break;
+            case 74:
+            case 40:
+                envelope.translate(0, -20000);
+                break;
+            case 72:
+            case 37:
+                envelope.translate(-20000, 0);
+                break;
+            case 76:
+            case 39:
+                envelope.translate(20000, 0);
+                break;
+            case 82:
+                Envelope allEnv = new Envelope();
+                for (LayerData ld : mapPanel.getLayerDataList()) {
+                    allEnv.expandToInclude(ld.getEnvelope());
+                }
+                envelope = allEnv;
+                break;
+        }
+
+        if (!envelope.equals(mapPanel.getEnvelope())) {
+            mapPanel.setEnvelope(envelope);
         }
         mapPanel.repaint();
     }//GEN-LAST:event_mapPanelKeyPressed
