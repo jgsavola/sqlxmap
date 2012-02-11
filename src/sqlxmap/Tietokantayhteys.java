@@ -108,6 +108,7 @@ public class Tietokantayhteys {
         }
 
         LayerData ld = new LayerData();        
+        ld.setSQL(SQL);
         while (rs.next()) {
             String geometry = rs.getString(geometryColumnNum);
 //            System.out.println("rivi: " + geometry);

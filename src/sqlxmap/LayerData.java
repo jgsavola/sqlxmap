@@ -24,6 +24,8 @@ import java.util.Iterator;
  * @author jonne
  */
 public class LayerData implements Iterable<Geometry> {
+    private String SQL;
+
     private ArrayList<Geometry> geometries;
     private Envelope layerEnvelope;
     private GeometryFactory geometryFactory;
@@ -35,6 +37,14 @@ public class LayerData implements Iterable<Geometry> {
         geometryFactory = new GeometryFactory();
         wktReader = new WKTReader(geometryFactory);
         wkbReader = new WKBReader(geometryFactory);
+    }
+    
+    public String getSQL() {
+        return SQL;
+    }
+
+    public void setSQL(String SQL) {
+        this.SQL = SQL;
     }
     
     public void addGeometry(Geometry geom) {
