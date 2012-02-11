@@ -1,32 +1,20 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sqlxmap.ui;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import sqlxmap.DatabaseInfo;
-import sqlxmap.LayerData;
-import sqlxmap.Settings;
-import sqlxmap.Tietokantayhteys;
 
+import sqlxmap.SQLTarkkailtava;
 /**
  *
  * @author jgsavola
  */
 public class Kyselyikkuna extends javax.swing.JFrame {
-    private MapPanel mapPanel;
-    private Settings settings;
+    private SQLTarkkailtava tarkkailtava;
     
     /**
      * Creates new form Kyselyikkuna
      */
-    public Kyselyikkuna(MapPanel mapPanel, Settings settings) {
+    public Kyselyikkuna(SQLTarkkailtava tarkkailtava) {
         initComponents();
-        this.mapPanel = mapPanel;
-        this.settings = settings;
+        this.tarkkailtava = tarkkailtava;
     }
 
     public Kyselyikkuna() {
@@ -92,24 +80,9 @@ public class Kyselyikkuna extends javax.swing.JFrame {
         System.out.println("kysely: " + kysely);
         
         /**
-         * Hae ensimmäisen tietokantayhteyden tiedot.
-         * 
-         * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
+         * Viestin pitäisi lähteä tästä kiinnostuneille.
          */
-        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
-        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
-        try {
-            yhteys.yhdista();
-
-            LayerData kyselyData = yhteys.teeKysely(kysely);
-            mapPanel.addLayerData(kyselyData);
-            mapPanel.repaint();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        tarkkailtava.setSQL(kysely);
     }//GEN-LAST:event_suoritaButtonActionPerformed
 
     /**

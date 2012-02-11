@@ -9,13 +9,11 @@ import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.io.ParseException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sqlxmap.DatabaseInfo;
-import sqlxmap.LayerData;
-import sqlxmap.Settings;
-import sqlxmap.Tietokantayhteys;
-import sun.security.krb5.internal.KDCOptions;
+import sqlxmap.*;
 
 /**
  * Graafinen käyttöliittymä sovellukselle.
@@ -25,7 +23,7 @@ import sun.security.krb5.internal.KDCOptions;
  * 
  * @author jonne
  */
-public class SQLxMapApp extends javax.swing.JFrame {
+public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private Settings settings;
     
     /**
@@ -273,7 +271,9 @@ public class SQLxMapApp extends javax.swing.JFrame {
 
     private void kyselyikkunaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kyselyikkunaButtonActionPerformed
         System.out.println("Kysely");
-        Kyselyikkuna kyselyikkuna = new Kyselyikkuna(mapPanel, settings);
+        SQLTarkkailtava tarkkailtava = new SQLTarkkailtava();
+        tarkkailtava.addObserver(this);
+        Kyselyikkuna kyselyikkuna = new Kyselyikkuna(tarkkailtava);
         kyselyikkuna.setVisible(true);
     }//GEN-LAST:event_kyselyikkunaButtonActionPerformed
 
@@ -378,5 +378,36 @@ public class SQLxMapApp extends javax.swing.JFrame {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
         mapPanel.addLayerData(ld);
+    }
+
+    @Override
+    public void update(Observable o, Object o1) {
+        System.out.println("o1 " + o1);
+        
+        /**
+         * Jossain halutaan tehdä jotakin SQL-lauseelle :)
+         */
+        if (o instanceof SQLTarkkailtava) {
+            String kysely = (String)o1;
+
+            /**
+            * Hae ensimmäisen tietokantayhteyden tiedot.
+            * 
+            * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
+            */
+            DatabaseInfo dbinfo = settings.getDbInfo().get(0);
+            Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+            try {
+                yhteys.yhdista();
+
+                LayerData kyselyData = yhteys.teeKysely(kysely);
+                mapPanel.addLayerData(kyselyData);
+                mapPanel.repaint();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
