@@ -369,7 +369,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 LayerData kyselyData = yhteys.teeKysely(SQL);
                 Karttataso karttataso = new Karttataso();
                 karttataso.setLayerData(kyselyData);
-                karttataso.setPiirtovari(varisarja.seuraavaVari());
+                karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
                 mapPanel.lisaaKarttataso(karttataso);
             }
         } catch (ClassNotFoundException ex) {
@@ -382,7 +382,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         try {
             ld.addWKTGeometry("POINT(500000 7000000)");
             karttataso.setLayerData(ld);
-            karttataso.setPiirtovari(varisarja.seuraavaVari());
+            karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
         } catch (ParseException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -412,7 +412,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 LayerData kyselyData = yhteys.teeKysely(kysely);
                 Karttataso karttataso = new Karttataso();
                 karttataso.setLayerData(kyselyData);
-                karttataso.setPiirtovari(varisarja.seuraavaVari());
+                karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
                 mapPanel.lisaaKarttataso(karttataso);
                 mapPanel.repaint();
             } catch (ClassNotFoundException ex) {

@@ -17,7 +17,7 @@ import java.awt.Graphics2D;
  */
 public class Karttataso {
     private LayerData layerData;
-    private Color piirtovari;
+    private Piirtotyyli piirtotyyli;
 
     /**
      * Luo uusi karttataso.
@@ -55,10 +55,10 @@ public class Karttataso {
     /**
      * Anna piirtoväri.
      *
-     * @return Color
+     * @return Piirtotyyli
      */
-    public Color getPiirtovari() {
-        return piirtovari;
+    public Piirtotyyli getPiirtotyyli() {
+        return piirtotyyli;
     }
 
     /**
@@ -66,8 +66,8 @@ public class Karttataso {
      *
      * @param piirtovari Väri, jolla karttatason geometriat piirretään.
      */
-    public void setPiirtovari(Color piirtovari) {
-        this.piirtovari = piirtovari;
+    public void setPiirtotyyli(Piirtotyyli piirtotyyli) {
+        this.piirtotyyli = piirtotyyli;
     }
 
     /**
@@ -89,7 +89,6 @@ public class Karttataso {
      * @param affine Affiininen muunnosmatriisi karttatasolta piirtoikkunaan.
      */
     public void piirra(Graphics2D g2, Envelope envelope, AffineTransformation affine) {
-        g2.setColor(piirtovari);
         for (Geometry geometry : layerData) {
             /**
              * Ei piirretä ulkopuolelle jääviä kuvioita.
@@ -99,10 +98,32 @@ public class Karttataso {
             }
 
             if (geometry.getGeometryType().equals("LineString")) {
+                Color color = piirtotyyli.getPiirtovari();
+                if (color == null)
+                    return;
+
+                g2.setColor(color);
                 piirraMurtoviiva(g2, affine, geometry);
             } else if (geometry.getGeometryType().equals("Polygon")) {
+                Color tayttovari = piirtotyyli.getTayttovari();
+                if (tayttovari == null)
+                    return;
+
+                g2.setColor(tayttovari);
+                taytaMonikulmio(g2, affine, geometry);
+
+                Color piirtovari = piirtotyyli.getPiirtovari();
+                if (piirtovari == null)
+                    return;
+
+                g2.setColor(piirtovari);
                 piirraMonikulmio(g2, affine, geometry);
             } else if (geometry.getGeometryType().equals("Point")) {
+                Color color = piirtotyyli.getPiirtovari();
+                if (color == null)
+                    return;
+
+                g2.setColor(color);
                 piirraPiste(g2, affine, geometry);
             }
         }
@@ -143,14 +164,14 @@ public class Karttataso {
     }
 
     /**
-     * Piirrä monikulmio.
+     * Piirrä monikulmion ääriviivat.
      *
-     * Tämä toteutus piirtää vain monikulmion ulkorenkaan. Reikien
-     * piirtäminen toteuttamatta, samoin rajaviivojen.
+     * Tämä toteutus täyttää vain monikulmion ulkorenkaan. Reikien
+     * leikkaaminen toteuttamatta.
      *
      * @param g2 Grafiikka-konteksti.
      * @param affine Affiininen muunnos geometrian koordinaatistosta ikkunan koordinaatistoon.
-     * @param geometry Piirrettävä geometria.
+     * @param geometry Täytettävä geometria.
      */
     private void piirraMonikulmio(Graphics2D g2, AffineTransformation affine, Geometry geometry) {
         Polygon polygon = (Polygon)geometry;
@@ -164,7 +185,31 @@ public class Karttataso {
             y[i] = (int)c.y;
             i++;
         }
+        g2.drawPolygon(x, y, i);
+    }
+
+    /**
+     * Täytä monikulmion ääriviivat.
+     *
+     * Tämä toteutus piirtää vain monikulmion ulkorenkaan ääriviivat. Reikien
+     * piirtäminen toteuttamatta.
+     *
+     * @param g2 Grafiikka-konteksti.
+     * @param affine Affiininen muunnos geometrian koordinaatistosta ikkunan koordinaatistoon.
+     * @param geometry Piirrettävä geometria.
+     */
+    private void taytaMonikulmio(Graphics2D g2, AffineTransformation affine, Geometry geometry) {
+        Polygon polygon = (Polygon)geometry;
+        LineString exteriorRing = polygon.getExteriorRing();
+
+        int[] x = new int[exteriorRing.getNumPoints()];
+        int[] y = new int[exteriorRing.getNumPoints()];
+        int i = 0;
+        for (Coordinate c : affine.transform(exteriorRing).getCoordinates()) {
+            x[i] = (int)c.x;
+            y[i] = (int)c.y;
+            i++;
+        }
         g2.fillPolygon(x, y, i);
-//        piirraMurtoviiva(g2, affine, geometry);
     }
 }
