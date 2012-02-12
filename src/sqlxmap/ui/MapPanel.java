@@ -212,4 +212,12 @@ public class MapPanel extends javax.swing.JPanel {
                 
         resetAffineTransformation();
     }
+
+    /**
+     * Poista kaikki karttatasot karttapaneelista.
+     */
+    public void poistaKarttatasot() {
+        karttatasot.clear();
+        repaint();
+    }
 }

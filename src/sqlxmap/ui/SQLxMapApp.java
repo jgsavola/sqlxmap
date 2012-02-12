@@ -60,6 +60,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
         jToolBar1 = new javax.swing.JToolBar();
         kyselyikkunaButton = new javax.swing.JButton();
+        poistaKarttatasotButton = new javax.swing.JButton();
         statusTextField = new javax.swing.JTextField();
         mapPanel = new sqlxmap.ui.MapPanel();
         menuBar = new javax.swing.JMenuBar();
@@ -98,6 +99,17 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             }
         });
         jToolBar1.add(kyselyikkunaButton);
+
+        poistaKarttatasotButton.setText("Poista karttatasot");
+        poistaKarttatasotButton.setFocusable(false);
+        poistaKarttatasotButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        poistaKarttatasotButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        poistaKarttatasotButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                poistaKarttatasotButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(poistaKarttatasotButton);
 
         statusTextField.setEditable(false);
         statusTextField.setText("status");
@@ -280,6 +292,10 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         kyselyikkuna.setVisible(true);
     }//GEN-LAST:event_kyselyikkunaButtonActionPerformed
 
+    private void poistaKarttatasotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaKarttatasotButtonActionPerformed
+        mapPanel.poistaKarttatasot();
+    }//GEN-LAST:event_poistaKarttatasotButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +353,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JButton poistaKarttatasotButton;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JTextField statusTextField;
