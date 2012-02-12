@@ -5,6 +5,7 @@
 package sqlxmap;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.*;
@@ -72,7 +73,8 @@ public class TietokantayhteysTest {
         }
         
         try {
-            LayerData ld = yhteys.teeKysely("SELECT text1, the_geom FROM miljoona.cityp LIMIT 10");
+            ArrayList<LayerData> layerDataList = yhteys.teeKysely("SELECT text1, the_geom FROM miljoona.cityp LIMIT 10");
+            LayerData ld = layerDataList.get(0);
         } catch (SQLException ex) {
             Logger.getLogger(TietokantayhteysTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Tietokantakysely epäonnistui.");

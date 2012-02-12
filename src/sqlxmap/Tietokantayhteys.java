@@ -6,6 +6,7 @@ package sqlxmap;
 
 import com.vividsolutions.jts.io.ParseException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,9 +70,27 @@ public class Tietokantayhteys {
      * @return LayerData-olio, jossa on kyselyn tulosjoukko.
      * @throws SQLException 
      */
-    public LayerData teeKysely(String SQL) throws SQLException {
+    public ArrayList<LayerData> teeKysely(String SQL) throws SQLException {
+        ArrayList<LayerData> layerDataList = new ArrayList<LayerData>();
+        
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
+
+        stmt.execute(SQL);
+        while (true) {
+            ResultSet rs = stmt.getResultSet();
+            if (rs != null) {
+                LayerData ld = tulkitseResultSet(rs);
+                ld.setSQL(SQL);
+                layerDataList.add(ld);
+            }
+            if (stmt.getMoreResults() == false && stmt.getUpdateCount() == -1)
+                break;
+        }
+
+        return layerDataList;
+    }
+
+    private LayerData tulkitseResultSet(ResultSet rs) throws SQLException {
         int geometryColumnNum = 0;
         String geometryColumnTypeName = null;
         
@@ -108,7 +127,6 @@ public class Tietokantayhteys {
         }
 
         LayerData ld = new LayerData();        
-        ld.setSQL(SQL);
         while (rs.next()) {
             String geometry = rs.getString(geometryColumnNum);
 //            System.out.println("rivi: " + geometry);
@@ -120,8 +138,6 @@ public class Tietokantayhteys {
                 Logger.getLogger(Tietokantayhteys.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-        System.out.println("layerData envelope: " + ld.getEnvelope());
         
         return ld;
     }
