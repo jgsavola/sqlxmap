@@ -127,7 +127,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
-          <Component id="statusTextField" alignment="0" pref="400" max="32767" attributes="0"/>
+          <Component id="statusTextField" alignment="0" max="32767" attributes="0"/>
           <Component id="mapPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -162,6 +162,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kyselyikkunaButtonActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator1">
+        </Component>
+        <Component class="javax.swing.JButton" name="tietokantakyselyLeikepoydaltaButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tietokantakysely leikep&#xf6;yd&#xe4;lt&#xe4;"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tietokantakyselyLeikepoydaltaButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator2">
+        </Component>
         <Component class="javax.swing.JButton" name="poistaKarttatasotButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Poista karttatasot"/>
@@ -171,6 +186,19 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="poistaKarttatasotButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator3">
+        </Component>
+        <Component class="javax.swing.JButton" name="naytaKaikkiButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xe4;yt&#xe4; kaikki"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="naytaKaikkiButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -1,6 +1,14 @@
 package sqlxmap.ui;
 
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sqlxmap.SQLTarkkailtava;
 /**
  *
@@ -21,6 +29,9 @@ public class Kyselyikkuna extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void setSQLText(String SQL) {
+        kyselyEditorPane.setText(SQL);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,6 +44,8 @@ public class Kyselyikkuna extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         suoritaButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        suoritaValintaButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         kyselyEditorPane = new javax.swing.JEditorPane();
 
@@ -51,6 +64,18 @@ public class Kyselyikkuna extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(suoritaButton);
+        jToolBar1.add(jSeparator1);
+
+        suoritaValintaButton.setText("Suorita valinta");
+        suoritaValintaButton.setFocusable(false);
+        suoritaValintaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        suoritaValintaButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        suoritaValintaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suoritaValintaButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(suoritaValintaButton);
 
         jScrollPane1.setViewportView(kyselyEditorPane);
 
@@ -85,6 +110,21 @@ public class Kyselyikkuna extends javax.swing.JFrame {
          */
         tarkkailtava.setSQL(kysely);
     }//GEN-LAST:event_suoritaButtonActionPerformed
+
+    private void suoritaValintaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suoritaValintaButtonActionPerformed
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemSelection();
+        Transferable ct = clipboard.getContents(null);
+        try {
+            Object transferData = ct.getTransferData(DataFlavor.stringFlavor);
+            String kysely = transferData.toString();
+            System.out.println("Transferdata: " + kysely);
+            tarkkailtava.setSQL(kysely);
+        } catch (IOException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedFlavorException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_suoritaValintaButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,8 +169,10 @@ public class Kyselyikkuna extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JEditorPane kyselyEditorPane;
     private javax.swing.JButton suoritaButton;
+    private javax.swing.JButton suoritaValintaButton;
     // End of variables declaration//GEN-END:variables
 }

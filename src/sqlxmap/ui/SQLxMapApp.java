@@ -8,6 +8,12 @@ import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.io.ParseException;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -60,7 +66,12 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
         jToolBar1 = new javax.swing.JToolBar();
         kyselyikkunaButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        tietokantakyselyLeikepoydaltaButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         poistaKarttatasotButton = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
+        naytaKaikkiButton = new javax.swing.JButton();
         statusTextField = new javax.swing.JTextField();
         mapPanel = new sqlxmap.ui.MapPanel();
         menuBar = new javax.swing.JMenuBar();
@@ -99,6 +110,19 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             }
         });
         jToolBar1.add(kyselyikkunaButton);
+        jToolBar1.add(jSeparator1);
+
+        tietokantakyselyLeikepoydaltaButton.setText("Tietokantakysely leikepöydältä");
+        tietokantakyselyLeikepoydaltaButton.setFocusable(false);
+        tietokantakyselyLeikepoydaltaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tietokantakyselyLeikepoydaltaButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        tietokantakyselyLeikepoydaltaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tietokantakyselyLeikepoydaltaButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(tietokantakyselyLeikepoydaltaButton);
+        jToolBar1.add(jSeparator2);
 
         poistaKarttatasotButton.setText("Poista karttatasot");
         poistaKarttatasotButton.setFocusable(false);
@@ -110,6 +134,18 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             }
         });
         jToolBar1.add(poistaKarttatasotButton);
+        jToolBar1.add(jSeparator3);
+
+        naytaKaikkiButton.setText("Näytä kaikki");
+        naytaKaikkiButton.setFocusable(false);
+        naytaKaikkiButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        naytaKaikkiButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        naytaKaikkiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naytaKaikkiButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(naytaKaikkiButton);
 
         statusTextField.setEditable(false);
         statusTextField.setText("status");
@@ -205,7 +241,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(statusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(statusTextField)
             .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -290,11 +326,77 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         tarkkailtava.addObserver(this);
         Kyselyikkuna kyselyikkuna = new Kyselyikkuna(tarkkailtava);
         kyselyikkuna.setVisible(true);
+        kyselyikkuna.setSQLText("--\n"
++ "-- Tee verkosto maantieteellissä koordinaateissa.\n"
++ "--\n"
++ "SELECT ST_Transform(ST_SetSRID(ST_MakePoint(x.x, y.y), 4326), 3067)\n"
++ "       FROM (SELECT generate_series(10, 40, 1) x) x\n"
++ "       JOIN (SELECT generate_series(50, 80, 1) y) y\n"
++ "       ON true;\n"
++ "\n"
++ "-- Maakuntia\n"
++ "SELECT the_geom FROM miljoona.maaku1_p;\n"
++ "\n"
++ "-- Rannikkoviivaa\n"
++ "SELECT the_geom FROM miljoona.coast_l;\n"
++ "\n"
++ "-- Rautateitä\n"
++ "SELECT the_geom FROM miljoona.railway;\n"
++ "\n"
++ "-- Kaupunkeja, joissa yli 3000 asukasta\n"
++ "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 3000;\n"
++ "\n"
++ "-- Seutukuntia Ahvenanmaan suunnalla\n"
++ "SELECT the_geom FROM miljoona.kunta1_p WHERE seutukunta::int BETWEEN 200 AND 300;\n"
++ "\n"
++ "-- Helsinki\n"
++ "SELECT the_geom FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki';\n"
++ "\n"
++ "--\n"
++ "-- Hae Helsinki ja rekursiivisesti kaikki kunnat, jotka 'koskettavat'\n"
++ "-- Helsinkiä, ts. niiden leikkaus on piste tai viiva.\n"
++ "--\n"
++ "-- Rekursion päättymisehto on tässä: t.n < 5\n"
++ "--\n"
++ "-- Varoitus! Suoritusaika kasvaa eksponentiaalisesti, 't.n < 7':kin\n"
++ "-- alkoi jo epäilyttää.\n"
++ "--\n"
++ "WITH RECURSIVE t(the_geom, n) AS (\n"
++ "     SELECT the_geom, 1 FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki'\n"
++ "   UNION ALL\n"
++ "     SELECT kunta1_p.the_geom, t.n + 1 \n"
++ "     FROM miljoona.kunta1_p, t\n"
++ "         WHERE ST_Touches(t.the_geom, kunta1_p.the_geom) AND t.n < 5\n"
++ ")\n"
++ "SELECT ST_Union(the_geom) FROM t\n"
++ "GROUP BY t.n\n"
++ "ORDER BY t.n DESC;\n"
++ "\n"
+);
     }//GEN-LAST:event_kyselyikkunaButtonActionPerformed
 
     private void poistaKarttatasotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaKarttatasotButtonActionPerformed
         mapPanel.poistaKarttatasot();
     }//GEN-LAST:event_poistaKarttatasotButtonActionPerformed
+
+    private void tietokantakyselyLeikepoydaltaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tietokantakyselyLeikepoydaltaButtonActionPerformed
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemSelection();
+        Transferable ct = clipboard.getContents(null);
+        try {
+            Object transferData = ct.getTransferData(DataFlavor.stringFlavor);
+            String kysely = transferData.toString();
+            System.out.println("Transferdata: " + kysely);
+            suoritaKysely(kysely);
+        } catch (IOException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedFlavorException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tietokantakyselyLeikepoydaltaButtonActionPerformed
+
+    private void naytaKaikkiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naytaKaikkiButtonActionPerformed
+        mapPanel.naytaKokoMaailma();
+    }//GEN-LAST:event_naytaKaikkiButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,16 +449,21 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton kyselyikkunaButton;
     private sqlxmap.ui.MapPanel mapPanel;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JButton naytaKaikkiButton;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JButton poistaKarttatasotButton;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JTextField statusTextField;
+    private javax.swing.JButton tietokantakyselyLeikepoydaltaButton;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -417,29 +524,33 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         if (o instanceof SQLTarkkailtava) {
             String kysely = (String)o1;
 
-            /**
-            * Hae ensimmäisen tietokantayhteyden tiedot.
-            * 
-            * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
-            */
-            DatabaseInfo dbinfo = settings.getDbInfo().get(0);
-            Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
-            try {
-                yhteys.yhdista();
+            suoritaKysely(kysely);
+        }
+    }
 
-                ArrayList<LayerData> layerDataList = yhteys.teeKysely(kysely);
-                for (LayerData ld : layerDataList) {
-                    Karttataso karttataso = new Karttataso();
-                    karttataso.setLayerData(ld);
-                    karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
-                    mapPanel.lisaaKarttataso(karttataso);
-                    mapPanel.repaint();
-                }
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+    private void suoritaKysely(String kysely) {
+        /**
+        * Hae ensimmäisen tietokantayhteyden tiedot.
+        * 
+        * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
+        */
+        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
+        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+        try {
+            yhteys.yhdista();
+
+            ArrayList<LayerData> layerDataList = yhteys.teeKysely(kysely);
+            for (LayerData ld : layerDataList) {
+                Karttataso karttataso = new Karttataso();
+                karttataso.setLayerData(ld);
+                karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
+                mapPanel.lisaaKarttataso(karttataso);
+                mapPanel.repaint();
             }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
