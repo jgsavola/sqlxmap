@@ -12,6 +12,8 @@ import java.awt.event.MouseEvent;
 import com.vividsolutions.jts.geom.util.AffineTransformation;
 import java.util.ArrayList;
 import sqlxmap.LayerData;
+import sqlxmap.SatunnainenVari;
+import sqlxmap.Varisarja;
 
 /**
  * Karttaikkuna karttatasojen näyttämiseen.
@@ -29,6 +31,8 @@ import sqlxmap.LayerData;
 public class MapPanel extends javax.swing.JPanel {
     private ArrayList<LayerData> layerDataList;
     private Envelope envelope;
+    private Varisarja varisarja;
+    private ArrayList<Color> karttatasovarit;
     /**
      * Tämä määrittelee koordinaatistomuunnoksen karttakoordinaateista
      * piirtoikkunan pikselikoordinaatteihin.
@@ -44,6 +48,8 @@ public class MapPanel extends javax.swing.JPanel {
 
         layerDataList = new ArrayList<LayerData>();
         envelope = new Envelope();
+        varisarja = new SatunnainenVari(0.0);
+        karttatasovarit = new ArrayList<Color>();
         affine = new AffineTransformation();
         resetAffineTransformation();
     }
@@ -57,6 +63,8 @@ public class MapPanel extends javax.swing.JPanel {
         layerDataList.add(layerData);
         envelope.expandToInclude(layerData.getEnvelope());
         resetAffineTransformation();
+        
+        karttatasovarit.add(varisarja.seuraavaVari());
         /**
          * TODO: Piirrä karttaikkuna uudestaan.
          */
@@ -98,19 +106,12 @@ public class MapPanel extends javax.swing.JPanel {
 
         long startNano = java.lang.System.nanoTime();
 
-        Color[] colors = {
-                            new Color(255, 50, 50, 200),
-                            new Color(50, 255, 50, 200),
-                            new Color(255, 50, 255, 200),
-                            new Color(255, 255, 255, 200)
-        };
         Graphics2D g2 = (Graphics2D)g;
         g2.setStroke(new BasicStroke(2));
 
         int n = 0;
         for (LayerData layerData : layerDataList) {
-            Color color = colors[n % colors.length];
-            g2.setColor(color);
+            g2.setColor(karttatasovarit.get(n));
 
             for (Geometry geometry : layerData) {
                 /**
