@@ -168,7 +168,8 @@ public class MapPanel extends javax.swing.JPanel {
         }
         long stopNano = java.lang.System.nanoTime();
 
-        g2.drawString("repaint: " + (stopNano - startNano) / 1.e6 + "ms", 0, 20);
+        FontMetrics metrics = g2.getFontMetrics();
+        g2.drawString("repaint: " + (stopNano - startNano) / 1.e6 + "ms", 2, metrics.getHeight());
     }
 
     /**
