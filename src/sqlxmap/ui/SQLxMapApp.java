@@ -7,6 +7,7 @@ package sqlxmap.ui;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.io.ParseException;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.Observable;
@@ -25,7 +26,8 @@ import sqlxmap.*;
  */
 public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private Settings settings;
-    
+    private Varisarja varisarja;
+
     /**
      * Creates new form SQLxMapApp
      */
@@ -33,6 +35,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         initComponents();
 
         mapPanel.requestFocusInWindow();
+        varisarja = new SatunnainenVari(0.0);
         
         try {
             settings = new Settings();
@@ -255,11 +258,11 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 envelope.translate(20000, 0);
                 break;
             case 82:
-                Envelope allEnv = new Envelope();
-                for (LayerData ld : mapPanel.getLayerDataList()) {
-                    allEnv.expandToInclude(ld.getEnvelope());
-                }
-                envelope = allEnv;
+//                Envelope allEnv = new Envelope();
+//                for (LayerData ld : mapPanel.getLayerDataList()) {
+//                    allEnv.expandToInclude(ld.getEnvelope());
+//                }
+//                envelope = allEnv;
                 break;
         }
 
@@ -364,7 +367,10 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
             for (String SQL : testikyselyt) {
                 LayerData kyselyData = yhteys.teeKysely(SQL);
-                mapPanel.addLayerData(kyselyData);
+                Karttataso karttataso = new Karttataso();
+                karttataso.setLayerData(kyselyData);
+                karttataso.setPiirtovari(varisarja.seuraavaVari());
+                mapPanel.lisaaKarttataso(karttataso);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -372,12 +378,15 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
+        Karttataso karttataso = new Karttataso();
         try {
             ld.addWKTGeometry("POINT(500000 7000000)");
+            karttataso.setLayerData(ld);
+            karttataso.setPiirtovari(varisarja.seuraavaVari());
         } catch (ParseException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        mapPanel.addLayerData(ld);
+        mapPanel.lisaaKarttataso(karttataso);
     }
 
     @Override
@@ -401,7 +410,10 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 yhteys.yhdista();
 
                 LayerData kyselyData = yhteys.teeKysely(kysely);
-                mapPanel.addLayerData(kyselyData);
+                Karttataso karttataso = new Karttataso();
+                karttataso.setLayerData(kyselyData);
+                karttataso.setPiirtovari(varisarja.seuraavaVari());
+                mapPanel.lisaaKarttataso(karttataso);
                 mapPanel.repaint();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
