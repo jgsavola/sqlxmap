@@ -32,6 +32,8 @@ import sqlxmap.Varisarja;
 public class MapPanel extends javax.swing.JPanel {
     private ArrayList<Karttataso> karttatasot;
     
+    private double pikselikokoX;
+    private double pikselikokoY;
     private Envelope envelope;
     private Varisarja varisarja;
     private ArrayList<Color> karttatasovarit;
@@ -63,8 +65,7 @@ public class MapPanel extends javax.swing.JPanel {
      */
     public void lisaaKarttataso(Karttataso karttataso) {
         karttatasot.add(karttataso);
-        envelope.expandToInclude(karttataso.getEnvelope());
-        resetAffineTransformation();
+        laajennaNakymaa(karttataso.getEnvelope());
         
         karttatasovarit.add(varisarja.seuraavaVari());
         /**
@@ -79,13 +80,6 @@ public class MapPanel extends javax.swing.JPanel {
     public void setEnvelope(Envelope envelope) {
         this.envelope = envelope;
         resetAffineTransformation();
-    }
-    
-    public Envelope envelopeExpandToInclude(Envelope envelope) {
-        this.envelope.expandToInclude(envelope);
-        resetAffineTransformation();
-
-        return this.envelope;
     }
     
     /**
@@ -116,8 +110,14 @@ public class MapPanel extends javax.swing.JPanel {
 
         long stopNano = java.lang.System.nanoTime();
 
+        double psx = this.envelope.getWidth() / (double)this.getWidth();
+        double psy = this.envelope.getHeight() / (double)this.getHeight();
+        
         FontMetrics metrics = g2.getFontMetrics();
         g2.drawString("repaint: " + (stopNano - startNano) / 1.e6 + "ms", 2, metrics.getHeight());
+        g2.drawString("psx: " + psx, 2, 2*metrics.getHeight());
+        g2.drawString("psy: " + psy, 2, 3*metrics.getHeight());
+
     }
 
     /**
@@ -149,6 +149,7 @@ public class MapPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        korjaaKuvasuhde();
         resetAffineTransformation();
         this.repaint();
     }//GEN-LAST:event_formComponentResized
@@ -180,5 +181,35 @@ public class MapPanel extends javax.swing.JPanel {
         wc.y = (envelope.getMaxY() - c.y) / envelope.getHeight() * (double)this.getHeight() - 1.0;
 
         return wc;
+    }
+
+    /**
+     * Laajenna näkymä kattamaan kaikki karttatasot.
+     */
+    public void naytaKokoMaailma() {
+        Envelope maailma = new Envelope();
+        for (Karttataso k : karttatasot) {
+            maailma.expandToInclude(k.getEnvelope());
+        }
+        setEnvelope(maailma);
+    }
+    
+    private void laajennaNakymaa(Envelope envelope) {
+        this.envelope.expandToInclude(envelope);
+
+        korjaaKuvasuhde();
+    }
+
+    public void korjaaKuvasuhde() {
+        double psx = this.envelope.getWidth() / (double)this.getWidth();
+        double psy = this.envelope.getHeight() / (double)this.getHeight();
+
+        if (psx > psy) {
+            this.envelope.expandBy(0, 0.5*(psx*this.getHeight() - this.envelope.getHeight()));
+        } else if (psy > psx) {
+            this.envelope.expandBy(0.5*(psy*this.getWidth() - this.envelope.getWidth()), 0);
+        }
+                
+        resetAffineTransformation();
     }
 }

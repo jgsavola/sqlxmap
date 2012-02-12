@@ -259,18 +259,17 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 envelope.translate(20000, 0);
                 break;
             case 82:
-//                Envelope allEnv = new Envelope();
-//                for (LayerData ld : mapPanel.getLayerDataList()) {
-//                    allEnv.expandToInclude(ld.getEnvelope());
-//                }
-//                envelope = allEnv;
+                mapPanel.naytaKokoMaailma();
+                envelope = mapPanel.getEnvelope();
                 break;
         }
 
         if (!envelope.equals(mapPanel.getEnvelope())) {
             mapPanel.setEnvelope(envelope);
         }
+        mapPanel.korjaaKuvasuhde();
         mapPanel.repaint();
+        
     }//GEN-LAST:event_mapPanelKeyPressed
 
     private void kyselyikkunaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kyselyikkunaButtonActionPerformed

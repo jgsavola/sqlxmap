@@ -83,6 +83,10 @@ public class Tietokantayhteys {
                 ld.setSQL(SQL);
                 layerDataList.add(ld);
             }
+            /**
+             * Seuraava tulos on joko tulosjoukko tai päivitettyjen kohteiden
+             * lukumäärä.
+             */
             if (stmt.getMoreResults() == false && stmt.getUpdateCount() == -1)
                 break;
         }
