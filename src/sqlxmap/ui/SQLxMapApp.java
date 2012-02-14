@@ -151,6 +151,11 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         statusTextField.setText("status");
 
         mapPanel.setBackground(new java.awt.Color(0, 0, 0));
+        mapPanel.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                mapPanelMouseWheelMoved(evt);
+            }
+        });
         mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 mapPanelMouseMoved(evt);
@@ -397,6 +402,42 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private void naytaKaikkiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naytaKaikkiButtonActionPerformed
         mapPanel.naytaKokoMaailma();
     }//GEN-LAST:event_naytaKaikkiButtonActionPerformed
+
+    private void mapPanelMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_mapPanelMouseWheelMoved
+        Envelope envelope = mapPanel.getEnvelope();
+
+        int x = evt.getX();
+        int y = evt.getY();
+
+        /**
+         * Ota talteen hiiren osoittimen sijainti vanhassa koordinaatistossa.
+         */
+        Coordinate vanhaPiste = mapPanel.transformCoordinatesWindowToWorld(x, y);
+
+        /**
+         * Zoomaa.
+         */
+        envelope.expandBy(evt.getWheelRotation()*20000);
+
+        /**
+         * Hiiren osoittimen sijainti uudessa koordinaatistossa.
+         */
+        Coordinate uusiPiste = mapPanel.transformCoordinatesWindowToWorld(x, y);
+
+        /**
+         * Ainakin lähennettäessä tämä vaikuttaa oikealta: koordinaatistoa
+         * siirretään niin, että hiiren osoitin säilyy samassa maantieteellisessä
+         * sijainnissa.
+         *
+         * FIXME: loitonnettaessa pitäisi ehkä käyttää jotain tapaa.
+         */
+        envelope.translate(vanhaPiste.x - uusiPiste.x,
+                           vanhaPiste.y - uusiPiste.y);
+
+        mapPanel.setEnvelope(envelope);
+        mapPanel.korjaaKuvasuhde();
+        mapPanel.repaint();
+    }//GEN-LAST:event_mapPanelMouseWheelMoved
 
     /**
      * @param args the command line arguments
