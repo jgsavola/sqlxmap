@@ -73,6 +73,15 @@ public class MapPanel extends javax.swing.JPanel {
          */
     }
 
+    /**
+     * Anna karttatasot <code>ArrayList</code>-oliona.
+     *
+     * @return ArrayList<Karttataso>.
+     */
+    public ArrayList<Karttataso> getKarttatasot() {
+        return karttatasot;
+    }
+
     public Envelope getEnvelope() {
         return this.envelope;
     }
