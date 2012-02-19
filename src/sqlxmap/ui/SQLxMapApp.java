@@ -511,13 +511,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
      * Luo muutama karttakohde karttatasojen piirtämisen testaamista varten.
      */
     private void addTestLayerData() {
-        /**
-         * Hae ensimmäisen tietokantayhteyden tiedot.
-         * 
-         * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
-         */
-        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
-        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+        Tietokantayhteys yhteys = new Tietokantayhteys(settings.getDbInfo());
         try {
             String[] testikyselyt = {
                 "SELECT the_geom FROM miljoona.maaku1_p",
@@ -570,13 +564,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     }
 
     private void suoritaKysely(String kysely) {
-        /**
-        * Hae ensimmäisen tietokantayhteyden tiedot.
-        * 
-        * FIXME: listan palauttaminen tuntuu huonolta käyttöliittymältä.
-        */
-        DatabaseInfo dbinfo = settings.getDbInfo().get(0);
-        Tietokantayhteys yhteys = new Tietokantayhteys(dbinfo);
+        Tietokantayhteys yhteys = new Tietokantayhteys(settings.getDbInfo());
         try {
             yhteys.yhdista();
 

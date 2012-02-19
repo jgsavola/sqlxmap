@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class Settings {
     private String settingsDirectory;
-    private ArrayList<DatabaseInfo> dbInfo;
+    private DatabaseInfo dbInfo;
 
             
     public Settings() throws Exception {
@@ -47,7 +47,6 @@ public class Settings {
     private void loadDatabaseInfo() throws IOException {
         File propFile = new File(settingsDirectory, "databases.properties");
 
-        dbInfo = new ArrayList<DatabaseInfo>();
         DatabaseInfo db = new DatabaseInfo();
 
         try {
@@ -63,22 +62,21 @@ public class Settings {
              */
         }
 
-        dbInfo.add(db);
+        this.dbInfo = db;
     }
 
     private void saveDatabaseInfo() throws IOException {
         File propFile = new File(settingsDirectory, "databases.properties");
-        DatabaseInfo db = dbInfo.get(0);
         
-        db.saveToPropertiesFile(propFile.getPath());
+        dbInfo.saveToPropertiesFile(propFile.getPath());
     }
     
     
-    public ArrayList<DatabaseInfo> getDbInfo() {
+    public DatabaseInfo getDbInfo() {
         return dbInfo;
     }
     
-    public void setDbInfo(ArrayList<DatabaseInfo> dbInfo) throws IOException {
+    public void setDbInfo(DatabaseInfo dbInfo) throws IOException {
         this.dbInfo = dbInfo;
         
         // Simulate persistent Settings -- save immediately.

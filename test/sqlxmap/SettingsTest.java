@@ -57,7 +57,7 @@ public class SettingsTest {
             return;
         }
 
-        DatabaseInfo dbInfo2 = settings.getDbInfo().get(0);
+        DatabaseInfo dbInfo2 = settings.getDbInfo();
 
         System.out.println("dbInfo.getURL: " + dbInfo.getJDBCURL());
         
@@ -75,9 +75,7 @@ public class SettingsTest {
             return;
         }
 
-        ArrayList<DatabaseInfo> databases = new ArrayList<DatabaseInfo>();
-        databases.add(dbInfo);
-        settings.setDbInfo(databases);
+        settings.setDbInfo(dbInfo);
     }
           
 }
