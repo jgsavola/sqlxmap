@@ -74,6 +74,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         naytaKaikkiButton = new javax.swing.JButton();
         statusTextField = new javax.swing.JTextField();
         mapPanel = new sqlxmap.ui.MapPanel();
+        peittavyysSlider = new javax.swing.JSlider();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -91,7 +92,6 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(700, 700));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -178,6 +178,15 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        peittavyysSlider.setToolTipText("Värien peittävyys");
+        peittavyysSlider.setValue(100);
+        peittavyysSlider.setFocusable(false);
+        peittavyysSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                peittavyysSliderStateChanged(evt);
+            }
+        });
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
 
@@ -246,8 +255,11 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(statusTextField)
             .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(peittavyysSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +268,9 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(peittavyysSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -439,6 +453,14 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         mapPanel.repaint();
     }//GEN-LAST:event_mapPanelMouseWheelMoved
 
+    private void peittavyysSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_peittavyysSliderStateChanged
+        for (Karttataso karttataso : mapPanel.getKarttatasot()) {
+            karttataso.getPiirtotyyli().asetaPeittavyysVareille(peittavyysSlider.getValue() / 100.0);
+        }
+
+        mapPanel.repaint();
+    }//GEN-LAST:event_peittavyysSliderStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -500,6 +522,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private javax.swing.JButton naytaKaikkiButton;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JSlider peittavyysSlider;
     private javax.swing.JButton poistaKarttatasotButton;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;

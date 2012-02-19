@@ -100,9 +100,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[600, 400]"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[700, 700]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
@@ -127,8 +124,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
-          <Component id="statusTextField" alignment="0" max="32767" attributes="0"/>
           <Component id="mapPanel" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="statusTextField" min="-2" pref="361" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="peittavyysSlider" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -138,7 +139,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="mapPanel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="statusTextField" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="statusTextField" min="-2" max="-2" attributes="0"/>
+                  <Component id="peittavyysSlider" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -234,5 +238,15 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JSlider" name="peittavyysSlider">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="V&#xe4;rien peitt&#xe4;vyys"/>
+        <Property name="value" type="int" value="100"/>
+        <Property name="focusable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="peittavyysSliderStateChanged"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
