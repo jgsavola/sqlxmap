@@ -52,4 +52,13 @@ public class Piirtotyyli {
         this.piirtovari = piirtovari;
         this.viivanleveys = viivanleveys;
     }
+
+    /**
+     * Aseta peittävyys väliltä 0.0--100.0 sekä täyttövärille että peittovärille.
+     * @param peittavyys Värin peittävyys (transparency/opacity).
+     */
+    public void asetaPeittavyysVareille(double peittavyys) {
+        tayttovari = new Color(tayttovari.getRed(), tayttovari.getGreen(), tayttovari.getBlue(), (int)(255*peittavyys));
+        piirtovari = new Color(piirtovari.getRed(), piirtovari.getGreen(), piirtovari.getBlue(), (int)(255*peittavyys));
+    }
 }
