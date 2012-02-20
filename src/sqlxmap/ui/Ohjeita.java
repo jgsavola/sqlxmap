@@ -36,6 +36,7 @@ public class Ohjeita extends javax.swing.JDialog {
         setPreferredSize(new java.awt.Dimension(600, 500));
 
         jTextPane1.setContentType("text/html");
+        jTextPane1.setEditable(false);
         jTextPane1.setText("<html>\n  <head>\n\n  </head>\n  <body>\n    <pre>\nOminaisuudet:\n=========\n\n* SQL-kyselyiden suorittaminen PostGIS-tietokannassa joko\n  - kyselyikkunassa (\"Tietokantakysely\"-nappi); tai\n  - leikepöydältä (\"Tietokantakysely leikepöydältä\"-nappi \n    tai \"Tietokantakysely\" ==> \"Suorita valinta\").\n* Puolipisteellä eroteltuja SQL-kyselyitä voi ajaa useampi kerralla.\n* Geometrioiden esittäminen kartalla (pisteet, viivat, monikulmiot).\n* Automaattisesti tuotetut pastellivärit karttatasoille.\n* Karttatasojen läpinäkyvyyttä voi säätää alareunan liukukytkimellä.\n* Karttaa voi vierittää nuolinäppäimillä (myös HJKL).\n* Karttaa voi lähentää tai loitontaa plus- ja miinus-näppäimillä (myös AS).\n* Näytä kaikki -toiminto.\n* Poista karttatasot -toiminto.\n    </pre>\n  </body>\n</html>\n");
         jScrollPane1.setViewportView(jTextPane1);
 

@@ -64,6 +64,7 @@
         <Component class="javax.swing.JTextPane" name="jTextPane1">
           <Properties>
             <Property name="contentType" type="java.lang.String" value="text/html"/>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;  &lt;head&gt;&#xa;&#xa;  &lt;/head&gt;&#xa;  &lt;body&gt;&#xa;    &lt;pre&gt;&#xa;Ominaisuudet:&#xa;=========&#xa;&#xa;* SQL-kyselyiden suorittaminen PostGIS-tietokannassa joko&#xa;  - kyselyikkunassa (&quot;Tietokantakysely&quot;-nappi); tai&#xa;  - leikep&#xf6;yd&#xe4;lt&#xe4; (&quot;Tietokantakysely leikep&#xf6;yd&#xe4;lt&#xe4;&quot;-nappi &#xa;    tai &quot;Tietokantakysely&quot; ==&gt; &quot;Suorita valinta&quot;).&#xa;* Puolipisteell&#xe4; eroteltuja SQL-kyselyit&#xe4; voi ajaa useampi kerralla.&#xa;* Geometrioiden esitt&#xe4;minen kartalla (pisteet, viivat, monikulmiot).&#xa;* Automaattisesti tuotetut pastelliv&#xe4;rit karttatasoille.&#xa;* Karttatasojen l&#xe4;pin&#xe4;kyvyytt&#xe4; voi s&#xe4;&#xe4;t&#xe4;&#xe4; alareunan liukukytkimell&#xe4;.&#xa;* Karttaa voi vieritt&#xe4;&#xe4; nuolin&#xe4;pp&#xe4;imill&#xe4; (my&#xf6;s HJKL).&#xa;* Karttaa voi l&#xe4;hent&#xe4;&#xe4; tai loitontaa plus- ja miinus-n&#xe4;pp&#xe4;imill&#xe4; (my&#xf6;s AS).&#xa;* N&#xe4;yt&#xe4; kaikki -toiminto.&#xa;* Poista karttatasot -toiminto.&#xa;    &lt;/pre&gt;&#xa;  &lt;/body&gt;&#xa;&lt;/html&gt;&#xa;"/>
           </Properties>
         </Component>
