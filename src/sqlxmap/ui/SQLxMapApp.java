@@ -553,41 +553,10 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
      */
     private void addTestLayerData() {
         Tietokantayhteys yhteys = new Tietokantayhteys(settings.getDbInfo());
-        try {
-            String[] testikyselyt = {
-                "SELECT the_geom FROM miljoona.maaku1_p",
-                "SELECT the_geom FROM miljoona.coast_l",
-                "SELECT the_geom FROM miljoona.railway",
-                "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 3000"
-            };
-            
-            yhteys.yhdista();
-
-            for (String SQL : testikyselyt) {
-                ArrayList<LayerData> layerDataList = yhteys.teeKysely(SQL);
-                for (LayerData ld : layerDataList) {
-                    Karttataso karttataso = new Karttataso();
-                    karttataso.setLayerData(ld);
-                    karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
-                    mapPanel.lisaaKarttataso(karttataso);
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        LayerData ld = new LayerData();
-        Karttataso karttataso = new Karttataso();
-        try {
-            ld.addWKTGeometry("POINT(500000 7000000)");
-            karttataso.setLayerData(ld);
-            karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
-        } catch (ParseException ex) {
-            Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        mapPanel.lisaaKarttataso(karttataso);
+        suoritaKysely("SELECT the_geom FROM miljoona.maaku1_p;\n"
+                + "SELECT the_geom FROM miljoona.coast_l;\n"
+                + "SELECT the_geom FROM miljoona.railway;\n"
+                + "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 3000");
     }
 
     @Override
