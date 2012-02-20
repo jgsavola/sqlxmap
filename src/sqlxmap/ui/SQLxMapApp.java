@@ -374,6 +374,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
     private void poistaKarttatasotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poistaKarttatasotButtonActionPerformed
         mapPanel.poistaKarttatasot();
+        karttatasoComboBox.removeAllItems();
     }//GEN-LAST:event_poistaKarttatasotButtonActionPerformed
 
     private void tietokantakyselyLeikepoydaltaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tietokantakyselyLeikepoydaltaButtonActionPerformed
