@@ -212,4 +212,14 @@ public class Karttataso {
         }
         g2.fillPolygon(x, y, i);
     }
+
+    /**
+     * Tähän sopisi jokin tiivistysmuoto, joka poimisi tason tiedoista
+     * riittävät tiedot, joilla käyttäjä tunnistaa, mistä tasosta on kyse.
+     *
+     * @return String.
+     */
+    public String toString() {
+        return layerData.getSQL();
+    }
 }
