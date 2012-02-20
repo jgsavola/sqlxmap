@@ -26,6 +26,7 @@ public class Settings {
             
     public Settings() throws Exception {
         load(System.getProperty("user.home"));
+        System.out.println("SQLxMap setushakemisto: " + settingsDirectory);
     }
     
     public Settings(String settingsDirectory) throws Exception {
