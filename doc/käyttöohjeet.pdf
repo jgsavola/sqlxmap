@@ -1,0 +1,1059 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R
+ /F2 3 0 R
+ /F3 4 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F2': class PDFType1Font 
+3 0 obj
+% Font Helvetica-Bold
+<< /BaseFont /Helvetica-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F2
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F3': class PDFType1Font 
+4 0 obj
+% Font Courier
+<< /BaseFont /Courier
+ /Encoding /WinAnsiEncoding
+ /Name /F3
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Annot.NUMBER1': class PDFDictionary 
+5 0 obj
+<< /A << /S /URI
+ /Type /Action
+ /URI (http://www.maanmittauslaitos.fi/ilmaisetaineistot) >>
+ /Border [ 0
+ 0
+ 0 ]
+ /Rect [ 82.69291
+ 454.3736
+ 532.5827
+ 466.3736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page1': class PDFPage 
+6 0 obj
+% Page dictionary
+<< /Annots [ 5 0 R ]
+ /Contents 17 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 16 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page2': class PDFPage 
+7 0 obj
+% Page dictionary
+<< /Contents 18 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 16 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page3': class PDFPage 
+8 0 obj
+% Page dictionary
+<< /Contents 19 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 16 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page4': class PDFPage 
+9 0 obj
+% Page dictionary
+<< /Contents 20 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 16 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R10': class PDFCatalog 
+10 0 obj
+% Document Root
+<< /Outlines 12 0 R
+ /PageLabels 21 0 R
+ /PageMode /UseNone
+ /Pages 16 0 R
+ /Type /Catalog >>
+endobj
+% 'R11': class PDFInfo 
+11 0 obj
+<< /Author ()
+ /CreationDate (D:20120220222019-02'00')
+ /Creator (\(unspecified\))
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (\(unspecified\))
+ /Title (SQLxMap) >>
+endobj
+% 'R12': class PDFOutlines 
+12 0 obj
+<< /Count 3
+ /First 13 0 R
+ /Last 15 0 R
+ /Type /Outlines >>
+endobj
+% 'Outline.0': class OutlineEntryObject 
+13 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 689.0236
+ 0 ]
+ /Next 14 0 R
+ /Parent 12 0 R
+ /Title (K\344ytt\366ohjeet) >>
+endobj
+% 'Outline.1': class OutlineEntryObject 
+14 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 302.2187
+ 0 ]
+ /Next 15 0 R
+ /Parent 12 0 R
+ /Prev 13 0 R
+ /Title (Toiminnot) >>
+endobj
+% 'Outline.2': class OutlineEntryObject 
+15 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 447.0236
+ 0 ]
+ /Parent 12 0 R
+ /Prev 14 0 R
+ /Title (SQL-kyselyj\344) >>
+endobj
+% 'R16': class PDFPages 
+16 0 obj
+% page tree
+<< /Count 4
+ /Kids [ 6 0 R
+ 7 0 R
+ 8 0 R
+ 9 0 R ]
+ /Type /Pages >>
+endobj
+% 'R17': class PDFStream 
+17 0 obj
+% page stream
+<< /Length 6605 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+BT 1 0 0 1 0 4 Tm 188.8249 0 Td 24 TL /F2 20 Tf 0 0 0 rg (SQLxMap) Tj T* -188.8249 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 719.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQLxMap --- geometriatietoa sis\344lt\344vien SQL-kyselyjen visualisoiminen) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 701.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Jonne Savolainen) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (K\344ytt\366ohjeet) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 638.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.019966 Tw (Sovelluksen k\344ytt\344minen vaatii toimivan PostgreSQL-tietokantayhteyden olemassaoloa. Sovellus lukee) Tj T* 0 Tw (tietokanta-asetukset tiedostosta, joka muodostetaan seuraavasti:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 604.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (System.getProperty\("user.home"\) + "/" + ".sqlxmap/databases.properties") Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 584.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tiedoston muoto on on seuraava:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 503.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL (dbHost=somehost) Tj T* (dbPort=someport) Tj T* (dbName=somedb) Tj T* (dbUser=someuser) Tj T* (dbPassword=somepassword) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 471.6236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 9.325681 Tw (Kyselyiss\344 k\344ytett\344v\344 kartta-aineisto \(1:1000000 karttatietokanta\) on ladattavissa ilmaiseksi) Tj T* 0 Tw (Maanmittauslaitoksen sivuilta:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 465.6236 cm
+Q
+q
+1 0 0 1 62.69291 453.6236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (http://www.maanmittauslaitos.fi/ilmaisetaineistot) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 453.6236 cm
+Q
+q
+1 0 0 1 62.69291 435.6236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Sovelluksen k\344ynnist\344minen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 406.2187 cm
+q
+q
+.849403 0 0 .849403 0 0 cm
+q
+1 0 0 1 6.6 7.770163 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 552 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (java -cp dist/lib/jts-1.12.jar:dist/lib/postgresql-8.3-603.jdbc3.jar -jar dist/SQLxMap.jar) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 386.2187 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Sovellus suorittaa heti muutaman kysely tietokantaan ja n\344ytt\344\344 ne karttaikkunassa.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 344.2187 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 4.482196 Tw (Sovellus t\344ytt\344\344 Kyselyikkunan valmiilla esimerkkikyselyill\344. Osa kyselyist\344 tarvitsee MML:n 1:1m) Tj T* 0 Tw .373314 Tw (aineiston, mutta osa kyselyist\344 ei k\344yt\344 mit\344\344n taulua vaan generoi geometriat laskennallisesti \("Verkosto) Tj T* 0 Tw (maantieteellisiss\344 koordinaateissa" ja "Mandelbrot"\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 314.2187 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.818863 Tw (Huom! Karttan\344kym\344n l\344hennys, loitonnus ja vieritt\344minen tapahtuu t\344ss\344 versiossa vakiomuutoksella.) Tj T* 0 Tw (T\344m\344 tarkoittaa, ett\344 sovelluksella ei voi l\344hent\344\344 suuriin mittakaavoihin.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 281.2187 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Toiminnot) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 269.2187 cm
+Q
+q
+1 0 0 1 62.69291 269.2187 cm
+Q
+q
+1 0 0 1 62.69291 233.2187 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n vieritt\344minen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Nuolin\344pp\344imet \(tai "H", "J", "K", "L"\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 233.2187 cm
+Q
+q
+1 0 0 1 62.69291 233.2187 cm
+Q
+q
+1 0 0 1 62.69291 197.2187 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n l\344hent\344minen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Plus \(tai hiiren rullapainike\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 197.2187 cm
+Q
+q
+1 0 0 1 62.69291 197.2187 cm
+Q
+q
+1 0 0 1 62.69291 161.2187 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n loitontaminen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Miinus \(tai hiiren rullapainike\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 161.2187 cm
+Q
+q
+1 0 0 1 62.69291 161.2187 cm
+Q
+q
+1 0 0 1 62.69291 101.2187 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttatason l\344pin\344kyvyyden muuttaminen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .493615 Tw (Valitse taso tasovalikosta ja muuta l\344pin\344kyvyytt\344 liukukytkimest\344. Erityisesti kysely "Hae Helsinki ja) Tj T* 0 Tw 2.095976 Tw (rekursiivistesti kaikki kunnat, jotka ..." on mielenkiintoinen \(ja paljastaa pienen kombinatoriikkaan) Tj T* 0 Tw (liittyv\344n ongelman rekursiivisen kyselyn muotoilussa...\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 101.2187 cm
+Q
+q
+1 0 0 1 62.69291 101.2187 cm
+Q
+q
+1 0 0 1 62.69291 77.21867 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen Kyselyikkunassa:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+ 
+endstream
+endobj
+% 'R18': class PDFStream 
+18 0 obj
+% page stream
+<< /Length 6211 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 693.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 59 Tm  T* ET
+q
+1 0 0 1 23 51 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Avaa Kyselyikkuna Tietokantakysely-painikkeesta.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 51 cm
+Q
+q
+1 0 0 1 23 51 cm
+Q
+q
+1 0 0 1 23 33 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Muokkaa kyselyj\344 ja paina "Suorita"-painikketta; tai) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 33 cm
+Q
+q
+1 0 0 1 23 33 cm
+Q
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.454418 Tw (Valitse kyselyj\344 Kyselyikkunassa tai miss\344 tahansa muussa ikkunassa \(selain, tekstieditori,) Tj T* 0 Tw (terminaali, ...\) ja paina "Suorita valinta".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 639.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen leikep\366yd\344lt\344:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 33 cm
+Q
+q
+1 0 0 1 23 33 cm
+Q
+q
+1 0 0 1 23 3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 4.875976 Tw (Valitse kyselyj\344 miss\344 tahansa ikkunassa \(selain, tekstieditori, terminaali, ...\) ja paina) Tj T* 0 Tw ("Tietokantakysely leikep\366yd\344lt\344".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+1 0 0 1 23 3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 639.0236 cm
+Q
+q
+1 0 0 1 62.69291 639.0236 cm
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Kaikkien karttatasojen poistaminen:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Paina "Poista karttatasot".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+Q
+q
+1 0 0 1 62.69291 567.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 kaikki karttatasot:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Paina "N\344yt\344 kaikki" \(tai "R"\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 567.0236 cm
+Q
+q
+1 0 0 1 62.69291 567.0236 cm
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 k\344ytt\366ohjeet:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Help ==) Tj (> Contents) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+Q
+q
+1 0 0 1 62.69291 531.0236 cm
+Q
+q
+1 0 0 1 62.69291 495.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 tietoja ohjelmasta:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Help ==) Tj (> About) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 495.0236 cm
+Q
+q
+1 0 0 1 62.69291 495.0236 cm
+Q
+q
+1 0 0 1 62.69291 459.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Lopeta ohjelma:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (File ==) Tj (> Exit) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 459.0236 cm
+Q
+q
+1 0 0 1 62.69291 459.0236 cm
+Q
+q
+1 0 0 1 62.69291 426.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (SQL-kyselyj\344) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 408.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Esimerkkikyselyj\344 \(suurin piirtein samat kyselyt ovat sovelluksen kyselyikkunassa\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 105.213 cm
+q
+q
+.941286 0 0 .941286 0 0 cm
+q
+1 0 0 1 6.6 7.011687 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 498 312 re B*
+Q
+q
+BT 1 0 0 1 0 290 Tm 12 TL /F3 10 Tf 0 0 0 rg (--) Tj T* (-- Tee verkosto maantieteelliss\344 koordinaateissa.) Tj T* (--) Tj T* (SELECT ST_Transform\(ST_SetSRID\(ST_MakePoint\(x.x, y.y\), 4326\), 3067\)) Tj T* (       FROM \(SELECT generate_series\(10, 40, 1\) x\) x) Tj T* (       JOIN \(SELECT generate_series\(50, 80, 1\) y\) y) Tj T* (       ON true;) Tj T*  T* (-- Maakuntia) Tj T* (SELECT the_geom FROM miljoona.maaku1_p;) Tj T*  T* (-- Rannikkoviivaa) Tj T* (SELECT the_geom FROM miljoona.coast_l;) Tj T*  T* (-- Rautateit\344) Tj T* (SELECT the_geom FROM miljoona.railway;) Tj T*  T* (-- Kaupunkeja, joissa yli 3000 asukasta) Tj T* (SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 ) Tj (>) Tj (= 3000;) Tj T*  T* (-- Seutukuntia Ahvenanmaan suunnalla) Tj T* (SELECT the_geom FROM miljoona.kunta1_p WHERE seutukunta::int BETWEEN 200 AND 300;) Tj T*  T* (-- Helsinki) Tj T* (SELECT the_geom FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki';) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R19': class PDFStream 
+19 0 obj
+% page stream
+<< /Length 2487 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 523.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 240 re B*
+Q
+q
+BT 1 0 0 1 0 218 Tm 12 TL /F3 10 Tf 0 0 0 rg (--) Tj T* (-- Hae Helsinki ja rekursiivisesti kaikki kunnat, jotka 'koskettavat') Tj T* (-- Helsinki\344, ts. niiden leikkaus on piste tai viiva.) Tj T* (--) Tj T* (-- Rekursion p\344\344ttymisehto on t\344ss\344: t.n ) Tj (<) Tj ( 5) Tj T* (--) Tj T* (-- Varoitus! Suoritusaika kasvaa eksponentiaalisesti, 't.n ) Tj (<) Tj ( 7':kin) Tj T* (-- alkoi jo ep\344ilytt\344\344.) Tj T* (--) Tj T* (WITH RECURSIVE t\(the_geom, n\) AS \() Tj T* (     SELECT the_geom, 1 FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki') Tj T* (   UNION ALL) Tj T* (     SELECT kunta1_p.the_geom, t.n + 1) Tj T* (     FROM miljoona.kunta1_p, t) Tj T* (         WHERE ST_Touches\(t.the_geom, kunta1_p.the_geom\) AND t.n ) Tj (<) Tj ( 5) Tj T* (\)) Tj T* (SELECT ST_Union\(the_geom\) FROM t) Tj T* (GROUP BY t.n) Tj T* (ORDER BY t.n DESC;) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 82.62362 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 432 re B*
+Q
+q
+BT 1 0 0 1 0 410 Tm 12 TL /F3 10 Tf 0 0 0 rg (--) Tj T* (-- Mandelbrot SQL:ll\344) Tj T* (-- \(vaatii Common Table Expression \(CTE\)-tuen\).) Tj T* (--) Tj T* (-- Kysely sovitettu t\344st\344 esimerkist\344) Tj T* (--) Tj T* (--  http://wiki.postgresql.org/wiki/Mandelbrot_set) Tj T* (--) Tj T* (-- niin, ett\344 Ascii-merkit on korvattu erikokoisilla) Tj T* (-- pisteill\344.) Tj T* (--) Tj T* (--) Tj T* (WITH RECURSIVE) Tj T* (x\(i\)) Tj T* (AS \() Tj T* (    VALUES\(0\)) Tj T* (UNION ALL) Tj T* (    SELECT i + 1 FROM x WHERE i ) Tj (<) Tj ( 101) Tj T* (\),) Tj T* (Z\(Ix, Iy, Cx, Cy, X, Y, I\)) Tj T* (AS \() Tj T* (    SELECT Ix, Iy, X::float, Y::float, X::float, Y::float, 0) Tj T* (    FROM) Tj T* (        \(SELECT -2.2 + 0.031 * i, i FROM x\) AS xgen\(x,ix\)) Tj T* (    CROSS JOIN) Tj T* (        \(SELECT -1.5 + 0.031 * i, i FROM x\) AS ygen\(y,iy\)) Tj T* (    UNION ALL) Tj T* (    SELECT Ix, Iy, Cx, Cy, X * X - Y * Y + Cx AS X, Y * X * 2 + Cy, I + 1) Tj T* (    FROM Z) Tj T* (    WHERE X * X + Y * Y ) Tj (<) Tj ( 16.0) Tj T* (    AND I ) Tj (<) Tj ( 27) Tj T* (\),) Tj T* (Zt \(Ix, Iy, I\) AS \() Tj T* (    SELECT Ix, Iy, MAX\(I\) AS I) Tj T* (    FROM Z) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R20': class PDFStream 
+20 0 obj
+% page stream
+<< /Length 555 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 643.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 120 re B*
+Q
+q
+BT 1 0 0 1 0 98 Tm 12 TL /F3 10 Tf 0 0 0 rg (    GROUP BY Iy, Ix) Tj T* (    ORDER BY Iy, Ix) Tj T* (\)) Tj T* (SELECT ST_Translate\() Tj T* (       ST_Buffer\() Tj T* (               ST_MakePoint\(3000*Ix, 3000*Iy\),) Tj T* (           20 + I*25\),) Tj T* (           -150000, 7100000, 0\)) Tj T* (FROM Zt;) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R21': class PDFPageLabels 
+21 0 obj
+% Document Root
+<< /Nums [ 0
+ 22 0 R
+ 1
+ 23 0 R
+ 2
+ 24 0 R
+ 3
+ 25 0 R ] >>
+endobj
+% 'R22': class PDFPageLabel 
+22 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+% 'R23': class PDFPageLabel 
+23 0 obj
+% None
+<< /S /D
+ /St 2 >>
+endobj
+% 'R24': class PDFPageLabel 
+24 0 obj
+% None
+<< /S /D
+ /St 3 >>
+endobj
+% 'R25': class PDFPageLabel 
+25 0 obj
+% None
+<< /S /D
+ /St 4 >>
+endobj
+xref
+0 26
+0000000000 65535 f
+0000000113 00000 n
+0000000233 00000 n
+0000000398 00000 n
+0000000573 00000 n
+0000000746 00000 n
+0000000999 00000 n
+0000001298 00000 n
+0000001577 00000 n
+0000001856 00000 n
+0000002136 00000 n
+0000002295 00000 n
+0000002550 00000 n
+0000002675 00000 n
+0000002853 00000 n
+0000003037 00000 n
+0000003196 00000 n
+0000003327 00000 n
+0000010031 00000 n
+0000016341 00000 n
+0000018927 00000 n
+0000019584 00000 n
+0000019716 00000 n
+0000019793 00000 n
+0000019870 00000 n
+0000019947 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(\002\244\276EE:q\373aoK\)\001kfT) (\002\244\276EE:q\373aoK\)\001kfT)] 
+
+ /Info 11 0 R
+ /Root 10 0 R
+ /Size 26 >>
+startxref
+19994
+%%EOF

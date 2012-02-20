@@ -1,0 +1,388 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R
+ /F2 3 0 R
+ /F3 4 0 R
+ /F4 5 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F2': class PDFType1Font 
+3 0 obj
+% Font Helvetica-Bold
+<< /BaseFont /Helvetica-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F2
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F3': class PDFType1Font 
+4 0 obj
+% Font Courier
+<< /BaseFont /Courier
+ /Encoding /WinAnsiEncoding
+ /Name /F3
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F4': class PDFType1Font 
+5 0 obj
+% Font Helvetica-Oblique
+<< /BaseFont /Helvetica-Oblique
+ /Encoding /WinAnsiEncoding
+ /Name /F4
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page1': class PDFPage 
+6 0 obj
+% Page dictionary
+<< /Contents 12 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 11 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R7': class PDFCatalog 
+7 0 obj
+% Document Root
+<< /Outlines 9 0 R
+ /PageLabels 13 0 R
+ /PageMode /UseNone
+ /Pages 11 0 R
+ /Type /Catalog >>
+endobj
+% 'R8': class PDFInfo 
+8 0 obj
+<< /Author ()
+ /CreationDate (D:20120220213440-02'00')
+ /Creator (\(unspecified\))
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (\(unspecified\))
+ /Title (SQLxMap) >>
+endobj
+% 'R9': class PDFOutlines 
+9 0 obj
+<< /Count 1
+ /First 10 0 R
+ /Last 10 0 R
+ /Type /Outlines >>
+endobj
+% 'Outline.0': class OutlineEntryObject 
+10 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 689.0236
+ 0 ]
+ /Parent 9 0 R
+ /Title (Testaus) >>
+endobj
+% 'R11': class PDFPages 
+11 0 obj
+% page tree
+<< /Count 1
+ /Kids [ 6 0 R ]
+ /Type /Pages >>
+endobj
+% 'R12': class PDFStream 
+12 0 obj
+% page stream
+<< /Length 5329 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+BT 1 0 0 1 0 4 Tm 188.8249 0 Td 24 TL /F2 20 Tf 0 0 0 rg (SQLxMap) Tj T* -188.8249 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 719.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQLxMap --- geometriatietoa sis\344lt\344vien SQL-kyselyjen visualisoiminen) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 701.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Jonne Savolainen) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Testaus) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 626.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 16.16595 Tw (Sovelluksen testaaminen vaatii toimivan PostgreSQL-tietokantayhteyden olemassaoloa.) Tj T* 0 Tw 17.64163 Tw (TietokantayhteysTest k\344ytt\344\344 projektin juurihakemistossa olevaa tiedostoa nimelt\344) Tj T* 0 Tw ("testdatabase.properties", jonka muoto on seuraava:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 544.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL (dbHost=somehost) Tj T* (dbPort=someport) Tj T* (dbName=somedb) Tj T* (dbUser=someuser) Tj T* (dbPassword=somepassword) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 500.8236 cm
+q
+BT 1 0 0 1 0 26 Tm .03622 Tw 12 TL /F1 10 Tf 0 0 0 rg (Yksikk\366testaus on keskittynyt ) Tj /F4 10 Tf (sqlxmap) Tj /F1 10 Tf (-pakkaukseen, k\344ytt\366liittym\344luokille ei ole yksikk\366testej\344. Merkitt\344v\344) Tj T* 0 Tw 2.138976 Tw (osa k\344ytt\366liittym\344st\344kin soveltuisi testattavaksi, mutta se vaatisi tarkempaa erottelua k\344ytt\366liittym\344n ja) Tj T* 0 Tw (sovelluslogiikan v\344lill\344.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 470.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .984252 Tw (Lis\344ksi esimerkiksi tietokantayhteden testaaminen asettaa haasteita riippuvuudellaan tietokantayhteyden) Tj T* 0 Tw (tiedoista, kuten k\344ytt\344j\344tunnuksista ja salasanoista.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 452.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Testiluokat testaavat seuraavia asioita:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 446.8236 cm
+Q
+q
+1 0 0 1 62.69291 395.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL -13.64063 0 Td (DatabaseInfoTest:) Tj T* 13.64063 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (JDBC-URL:n muodostaminen.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 91.03937 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Yhteystietojen lataaminen olemattomasta properties-tiedostosta.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Yhteystietojen tallentaminen ja lataaminen properties-tiedostosta.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 368.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL .79937 0 Td (LayerDataTest:) Tj T* -0.79937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 5.453399 Tw (Geometrioiden lis\344\344minen eri tavoin LayerData-olioon suurentaa ymp\344r\366iv\344\344) Tj T* 0 Tw (suorakaidetta oikealla tavalla.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 353.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL -29.22063 0 Td (SQLTarkkailtavaTest:) Tj T* 29.22063 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tarkista, ett\344 asetettu SQL-lause v\344litet\344\344n tarkkailijalle.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 338.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL -29.76063 0 Td (SatunnainenVariTest:) Tj T* 29.76063 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Kaksi per\344kk\344ist\344 v\344ri\344 ovat eri v\344rej\344.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 323.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 9.69937 0 Td (SettingsTest:) Tj T* -9.69937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Asetukset todella tallennetaan asetushakemistoon.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 290.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL -32.54063 0 Td (TietokantayhteysTest:) Tj T* 32.54063 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tietokantayhteyden muodostaminen onnistuu.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tietokantakyselyn tekeminen onnistuu.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 248.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .933615 Tw (Eniten testausta tarvitsisivat ne toiminnot, jotka ovat k\344ytt\366liittym\344luokkien sis\344ll\344 tai muuten riippuvaisia) Tj T* 0 Tw 3.080976 Tw (graafisesta k\344ytt\366liittym\344st\344. N\344iden testaaminen on kuitenkin vaikeaa ennen kuin k\344ytt\366liittym\344n ja) Tj T* 0 Tw (sovelluslogiikan rajaa on tarkennettu.) Tj T* ET
+Q
+Q
+ 
+endstream
+endobj
+% 'R13': class PDFPageLabels 
+13 0 obj
+% Document Root
+<< /Nums [ 0
+ 14 0 R ] >>
+endobj
+% 'R14': class PDFPageLabel 
+14 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+xref
+0 15
+0000000000 65535 f
+0000000113 00000 n
+0000000245 00000 n
+0000000410 00000 n
+0000000585 00000 n
+0000000746 00000 n
+0000000925 00000 n
+0000001204 00000 n
+0000001360 00000 n
+0000001613 00000 n
+0000001737 00000 n
+0000001872 00000 n
+0000001979 00000 n
+0000007411 00000 n
+0000007504 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(\010\236\343}\310:\347\2674\347\265\(\234\253\230y) (\010\236\343}\310:\347\2674\347\265\(\234\253\230y)] 
+
+ /Info 8 0 R
+ /Root 7 0 R
+ /Size 15 >>
+startxref
+7551
+%%EOF
