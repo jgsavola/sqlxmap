@@ -523,7 +523,6 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
      * Luo muutama karttakohde karttatasojen piirtämisen testaamista varten.
      */
     private void addTestLayerData() {
-        Tietokantayhteys yhteys = new Tietokantayhteys(settings.getDbInfo());
         suoritaKysely("SELECT the_geom FROM miljoona.maaku1_p;\n"
                 + "SELECT the_geom FROM miljoona.coast_l;\n"
                 + "SELECT the_geom FROM miljoona.railway;\n"
