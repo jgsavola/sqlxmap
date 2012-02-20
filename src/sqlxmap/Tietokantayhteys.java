@@ -7,6 +7,7 @@ package sqlxmap;
 import com.vividsolutions.jts.io.ParseException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -72,7 +73,17 @@ public class Tietokantayhteys {
      */
     public ArrayList<LayerData> teeKysely(String SQL) throws SQLException {
         ArrayList<LayerData> layerDataList = new ArrayList<LayerData>();
-        
+
+        /**
+         * Pilko jollakin tavalla moniosainen SQL-merkkijono puolipisteillä
+         * erotelluiksi SQL-lauseiksi.
+         *
+         * Tähän tarvittaisiin kunnollinen parseri tai sitten jokin keino
+         * saada tieto tietokanta-ajurilta. Nykyinen yksinkertaistettu keino
+         * olkoon vain tarkoitettu tukemaan käyttöliittymää, ts. tämä ratkaisu
+         * ei ole lopullinen.
+         */
+        LinkedList<String> sqlLauseet = pilkoSQL(SQL);
         Statement stmt = connection.createStatement();
 
         stmt.execute(SQL);
@@ -80,7 +91,15 @@ public class Tietokantayhteys {
             ResultSet rs = stmt.getResultSet();
             if (rs != null) {
                 LayerData ld = tulkitseResultSet(rs);
-                ld.setSQL(SQL);
+
+                /**
+                 * Erotellut SQL-lauseet eivät välttämättä vastaa tulosjoukkoja.
+                 */
+                String lause = sqlLauseet.poll();
+                if (lause == null)
+                    lause = "--tuntematon--";
+                ld.setSQL(lause);
+
                 layerDataList.add(ld);
             }
             /**
@@ -144,5 +163,20 @@ public class Tietokantayhteys {
         }
         
         return ld;
+    }
+
+    /**
+     * Jaa SQL-merkkijono SQL-lauseiksi puolipisteiden mukaan.
+     *
+     * @param SQL SQL-merkkijono
+     * @return LinkedList<String>.
+     */
+    private LinkedList<String> pilkoSQL(String SQL) {
+        LinkedList<String> lauseet = new LinkedList<String>();
+
+        for (String s : SQL.split(";"))
+            lauseet.add(s);
+
+        return lauseet;
     }
 }

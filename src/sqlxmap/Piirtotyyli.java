@@ -15,6 +15,7 @@ public class Piirtotyyli {
     private Color tayttovari;
     private Color piirtovari;
     private int viivanleveys;
+    private double peittavyys;
 
     public Color getPiirtovari() {
         return piirtovari;
@@ -51,14 +52,26 @@ public class Piirtotyyli {
         this.tayttovari = tayttovari;
         this.piirtovari = piirtovari;
         this.viivanleveys = viivanleveys;
+        this.peittavyys = 1.0;
     }
 
     /**
      * Aseta peittävyys väliltä 0.0--100.0 sekä täyttövärille että peittovärille.
      * @param peittavyys Värin peittävyys (transparency/opacity).
      */
-    public void asetaPeittavyysVareille(double peittavyys) {
+    public void setPeittavyys(double peittavyys) {
+        this.peittavyys = peittavyys;
+
         tayttovari = new Color(tayttovari.getRed(), tayttovari.getGreen(), tayttovari.getBlue(), (int)(255*peittavyys));
         piirtovari = new Color(piirtovari.getRed(), piirtovari.getGreen(), piirtovari.getBlue(), (int)(255*peittavyys));
+    }
+
+    /**
+     * Anna peittävyys.
+     *
+     * @return peittävyys.
+     */
+    public double getPeittavyys() {
+        return this.peittavyys;
     }
 }

@@ -75,6 +75,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         statusTextField = new javax.swing.JTextField();
         mapPanel = new sqlxmap.ui.MapPanel();
         peittavyysSlider = new javax.swing.JSlider();
+        karttatasoComboBox = new javax.swing.JComboBox();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -175,7 +176,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         );
         mapPanelLayout.setVerticalGroup(
             mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 295, Short.MAX_VALUE)
         );
 
         peittavyysSlider.setToolTipText("Värien peittävyys");
@@ -184,6 +185,14 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         peittavyysSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 peittavyysSliderStateChanged(evt);
+            }
+        });
+
+        karttatasoComboBox.setMaximumRowCount(32);
+        karttatasoComboBox.setFocusable(false);
+        karttatasoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                karttatasoComboBoxActionPerformed(evt);
             }
         });
 
@@ -254,12 +263,15 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
             .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(peittavyysSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(karttatasoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(peittavyysSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +281,9 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(karttatasoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(peittavyysSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -454,12 +468,15 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_mapPanelMouseWheelMoved
 
     private void peittavyysSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_peittavyysSliderStateChanged
-        for (Karttataso karttataso : mapPanel.getKarttatasot()) {
-            karttataso.getPiirtotyyli().asetaPeittavyysVareille(peittavyysSlider.getValue() / 100.0);
-        }
-
+        Karttataso karttataso = (Karttataso)karttatasoComboBox.getSelectedItem();
+        karttataso.getPiirtotyyli().setPeittavyys(peittavyysSlider.getValue() / 100.0);
         mapPanel.repaint();
     }//GEN-LAST:event_peittavyysSliderStateChanged
+
+    private void karttatasoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_karttatasoComboBoxActionPerformed
+        Karttataso karttataso = (Karttataso)karttatasoComboBox.getSelectedItem();
+        peittavyysSlider.setValue((int)(karttataso.getPiirtotyyli().getPeittavyys()*100));
+    }//GEN-LAST:event_karttatasoComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -516,6 +533,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JComboBox karttatasoComboBox;
     private javax.swing.JButton kyselyikkunaButton;
     private sqlxmap.ui.MapPanel mapPanel;
     private javax.swing.JMenuBar menuBar;
@@ -598,6 +616,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 karttataso.setPiirtotyyli(new Piirtotyyli(varisarja.seuraavaVari(), varisarja.seuraavaVari(), 1));
                 mapPanel.lisaaKarttataso(karttataso);
                 mapPanel.repaint();
+                karttatasoComboBox.addItem(karttataso);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
