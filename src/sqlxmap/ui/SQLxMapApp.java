@@ -207,6 +207,11 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
         contentsMenuItem.setMnemonic('c');
         contentsMenuItem.setText("Contents");
+        contentsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contentsMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(contentsMenuItem);
 
         aboutMenuItem.setMnemonic('a');
@@ -445,6 +450,11 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         TietojaOhjelmasta tietojaOhjelmasta = new TietojaOhjelmasta(this, true);
         tietojaOhjelmasta.setVisible(true);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void contentsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentsMenuItemActionPerformed
+        Ohjeita ohjeita = new Ohjeita(this, false);
+        ohjeita.setVisible(true);
+    }//GEN-LAST:event_contentsMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
