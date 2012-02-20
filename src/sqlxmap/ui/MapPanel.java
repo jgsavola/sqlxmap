@@ -201,6 +201,8 @@ public class MapPanel extends javax.swing.JPanel {
             maailma.expandToInclude(k.getEnvelope());
         }
         setEnvelope(maailma);
+        korjaaKuvasuhde();
+        repaint();
     }
     
     private void laajennaNakymaa(Envelope envelope) {
