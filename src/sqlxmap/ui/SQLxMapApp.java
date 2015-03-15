@@ -291,27 +291,27 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         switch(evt.getKeyCode()) {
             case 65:
             case 45:
-                envelope.expandBy(20000);
+                envelope.expandBy(envelope.getWidth() / 8.0);
                 break;
             case 521:
             case 83:
-                envelope.expandBy(-20000);
+                envelope.expandBy(-envelope.getWidth() / 8.0);
                 break;
             case 75:
             case 38:
-                envelope.translate(0, 20000);
+                envelope.translate(0, envelope.getHeight() / 8.0);
                 break;
             case 74:
             case 40:
-                envelope.translate(0, -20000);
+                envelope.translate(0, -envelope.getHeight() / 8.0);
                 break;
             case 72:
             case 37:
-                envelope.translate(-20000, 0);
+                envelope.translate(-envelope.getWidth() / 8.0, 0);
                 break;
             case 76:
             case 39:
-                envelope.translate(20000, 0);
+                envelope.translate(envelope.getWidth() / 8.0, 0);
                 break;
             case 82:
                 mapPanel.naytaKokoMaailma();
@@ -463,7 +463,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         /**
          * Zoomaa.
          */
-        envelope.expandBy(evt.getWheelRotation()*20000);
+        envelope.expandBy(evt.getWheelRotation()*envelope.getWidth() / 8.0);
 
         /**
          * Hiiren osoittimen sijainti uudessa koordinaatistossa.
