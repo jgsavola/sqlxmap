@@ -35,6 +35,8 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private Settings settings;
     private Varisarja varisarja;
 
+    private Coordinate mousePressedLocation;
+
     /**
      * Creates new form SQLxMapApp
      */
@@ -149,9 +151,17 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 mapPanelMouseWheelMoved(evt);
             }
         });
+        mapPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mapPanelMousePressed(evt);
+            }
+        });
         mapPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 mapPanelMouseMoved(evt);
+            }
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mapPanelMouseDragged(evt);
             }
         });
         mapPanel.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -499,6 +509,29 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         Ohjeita ohjeita = new Ohjeita(this, false);
         ohjeita.setVisible(true);
     }//GEN-LAST:event_contentsMenuItemActionPerformed
+
+    private void mapPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapPanelMousePressed
+        mousePressedLocation = mapPanel.transformCoordinatesWindowToWorld(evt.getX(), evt.getY());
+    }//GEN-LAST:event_mapPanelMousePressed
+
+    private void mapPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapPanelMouseDragged
+        Coordinate uusiPiste = mapPanel.transformCoordinatesWindowToWorld(evt.getX(), evt.getY());
+        Envelope envelope = mapPanel.getEnvelope();
+        
+        /**
+         * Ainakin lähennettäessä tämä vaikuttaa oikealta: koordinaatistoa
+         * siirretään niin, että hiiren osoitin säilyy samassa maantieteellisessä
+         * sijainnissa.
+         *
+         * FIXME: loitonnettaessa pitäisi ehkä käyttää jotain tapaa.
+         */
+        envelope.translate(mousePressedLocation.x - uusiPiste.x,
+                           mousePressedLocation.y - uusiPiste.y);
+
+        mapPanel.setEnvelope(envelope);
+        mapPanel.korjaaKuvasuhde();
+        mapPanel.repaint();
+    }//GEN-LAST:event_mapPanelMouseDragged
 
     /**
      * @param args the command line arguments
