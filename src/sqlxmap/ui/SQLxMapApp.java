@@ -36,6 +36,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private Varisarja varisarja;
 
     private Coordinate mousePressedLocation;
+    private Coordinate lastLocation;
 
     /**
      * Creates new form SQLxMapApp
@@ -276,6 +277,8 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         statusTextField.setText(evt.getX() + " " + evt.getY()
                 + " (" + f.format(c.x) + ", " + f.format(c.y) + ")"
                 + " (" + f.format(wc.x) + "," + f.format(wc.y) + ")");
+
+        lastLocation = c;
     }//GEN-LAST:event_mapPanelMouseMoved
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -516,6 +519,8 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 
     private void mapPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mapPanelMouseDragged
         Coordinate uusiPiste = mapPanel.transformCoordinatesWindowToWorld(evt.getX(), evt.getY());
+        lastLocation = uusiPiste;
+
         Envelope envelope = mapPanel.getEnvelope();
         
         /**
@@ -624,7 +629,25 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
         try {
             yhteys.yhdista();
 
-            ArrayList<LayerData> layerDataList = yhteys.teeKysely(kysely);
+            /**
+             * Korvaa ::bbox:: envelopen avulla.
+             */
+            Envelope envelope = mapPanel.getEnvelope();
+            String box3dText = "'BOX3D(" + envelope.getMinX() + " " + envelope.getMinY()
+                    + ", " + envelope.getMaxX() + " " + envelope.getMaxY() + ")'::box3d";
+            
+            String kyselyReplaced = kysely.replaceAll("::bbox::", box3dText);
+            
+            if (lastLocation != null) {
+                /**
+                 * Korvaa ::cp:: envelopen avulla.
+                 */
+                String cpText = "'POINT(" + lastLocation.x + " " + lastLocation.y + ")'";
+
+                kyselyReplaced = kyselyReplaced.replaceAll("::cp::", cpText);
+            }
+            
+            ArrayList<LayerData> layerDataList = yhteys.teeKysely(kyselyReplaced);
             for (LayerData ld : layerDataList) {
                 Karttataso karttataso = new Karttataso();
                 karttataso.setLayerData(ld);
