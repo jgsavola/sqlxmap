@@ -320,6 +320,9 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 mapPanel.naytaKokoMaailma();
                 envelope = mapPanel.getEnvelope();
                 break;
+            case 32:
+                executeFromClipboard();
+                break;
         }
 
         if (!envelope.equals(mapPanel.getEnvelope())) {
@@ -434,18 +437,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_poistaKarttatasotButtonActionPerformed
 
     private void tietokantakyselyLeikepoydaltaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tietokantakyselyLeikepoydaltaButtonActionPerformed
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemSelection();
-        Transferable ct = clipboard.getContents(null);
-        try {
-            Object transferData = ct.getTransferData(DataFlavor.stringFlavor);
-            String kysely = transferData.toString();
-            System.out.println("Transferdata: " + kysely);
-            suoritaKysely(kysely);
-        } catch (IOException ex) {
-            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedFlavorException ex) {
-            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        executeFromClipboard();
     }//GEN-LAST:event_tietokantakyselyLeikepoydaltaButtonActionPerformed
 
     private void naytaKaikkiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naytaKaikkiButtonActionPerformed
@@ -660,6 +652,21 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void executeFromClipboard() {
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemSelection();
+        Transferable ct = clipboard.getContents(null);
+        try {
+            Object transferData = ct.getTransferData(DataFlavor.stringFlavor);
+            String kysely = transferData.toString();
+            System.out.println("Transferdata: " + kysely);
+            suoritaKysely(kysely);
+        } catch (IOException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedFlavorException ex) {
+            Logger.getLogger(Kyselyikkuna.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
