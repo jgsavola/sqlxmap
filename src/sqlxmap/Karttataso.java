@@ -88,7 +88,7 @@ public class Karttataso {
      * @param envelope Piirrettävän alueen ympäröivä suorakaide.
      * @param affine Affiininen muunnosmatriisi karttatasolta piirtoikkunaan.
      */
-    public void piirra(Graphics2D g2, Envelope envelope, AffineTransformation affine) {
+    public void piirra(Graphics2D g2, Envelope envelope, AffineTransformation affine) throws Exception {
         for (Geometry geometry : layerData) {
             /**
              * Ei piirretä ulkopuolelle jääviä kuvioita.
@@ -104,20 +104,44 @@ public class Karttataso {
 
                 g2.setColor(color);
                 piirraMurtoviiva(g2, affine, geometry);
+            } else if (geometry.getGeometryType().equals("MultiLineString")) {
+                Color color = piirtotyyli.getPiirtovari();
+                if (color == null)
+                    return;
+
+                g2.setColor(color);
+                for (int i = 0; i < geometry.getNumGeometries(); i++)
+                    piirraMurtoviiva(g2, affine, geometry.getGeometryN(i));
             } else if (geometry.getGeometryType().equals("Polygon")) {
                 Color tayttovari = piirtotyyli.getTayttovari();
                 if (tayttovari == null)
                     return;
 
-                g2.setColor(tayttovari);
-                taytaMonikulmio(g2, affine, geometry);
-
                 Color piirtovari = piirtotyyli.getPiirtovari();
                 if (piirtovari == null)
                     return;
 
+                g2.setColor(tayttovari);
+                taytaMonikulmio(g2, affine, geometry);
+
                 g2.setColor(piirtovari);
                 piirraMonikulmio(g2, affine, geometry);
+            } else if (geometry.getGeometryType().equals("MultiPolygon")) {
+                Color tayttovari = piirtotyyli.getTayttovari();
+                if (tayttovari == null)
+                    return;
+
+                for (int i = 0; i < geometry.getNumGeometries(); i++) {
+                    g2.setColor(tayttovari);
+                    taytaMonikulmio(g2, affine, geometry.getGeometryN(i));
+
+                    Color piirtovari = piirtotyyli.getPiirtovari();
+                    if (piirtovari == null)
+                        return;
+
+                    g2.setColor(piirtovari);
+                    piirraMonikulmio(g2, affine, geometry.getGeometryN(i));
+                }
             } else if (geometry.getGeometryType().equals("Point")) {
                 Color color = piirtotyyli.getPiirtovari();
                 if (color == null)
@@ -125,6 +149,16 @@ public class Karttataso {
 
                 g2.setColor(color);
                 piirraPiste(g2, affine, geometry);
+            } else if (geometry.getGeometryType().equals("MultiPoint")) {
+                Color color = piirtotyyli.getPiirtovari();
+                if (color == null)
+                    return;
+
+                g2.setColor(color);
+                for (int i = 0; i < geometry.getNumGeometries(); i++)
+                    piirraPiste(g2, affine, geometry);
+            } else {
+                throw new Exception("Tuntematon geometriatyyppi '" + geometry.getGeometryType() + "'");
             }
         }
     }
