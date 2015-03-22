@@ -37,9 +37,9 @@ public class TietojaOhjelmasta extends javax.swing.JDialog {
 
         jLabel1.setText("SQLxMap");
 
-        jTextPane1.setContentType("text/html");
         jTextPane1.setEditable(false);
-        jTextPane1.setText("<html>\n  <head>\n\n  </head>\n  <body>\n    <p style=\"margin-top: 0\">\n      Paikkatietoa sisältävien SQL-kyselyjen visualisointityökalu\n    </p>\n    <p><a href=\"https://github.com/jgsavola/sqlxmap\"><https://github.com/jgsavola/sqlxmap</a>\n    </p>\n  </body>\n</html>\n");
+        jTextPane1.setContentType("text/html"); // NOI18N
+        jTextPane1.setText("<html>\n  <head>\n\n  </head>\n  <body>\n    <p style=\"margin-top: 0\">\n      Paikkatietoa sisältävien SQL-kyselyjen visualisointityökalu\n    </p>\n    <p><a href=\"https://github.com/jgsavola/sqlxmap\">https://github.com/jgsavola/sqlxmap</a>\n    </p>\n  </body>\n</html>\n");
         jScrollPane1.setViewportView(jTextPane1);
 
         jButton1.setText("OK");

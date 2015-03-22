@@ -1,218 +1,73 @@
 %PDF-1.4
 %“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
-% 'BasicFonts': class PDFDictionary 
 1 0 obj
-% The standard fonts dictionary
-<< /F1 2 0 R
- /F2 3 0 R
- /F3 4 0 R >>
+<< /F1 2 0 R /F2 3 0 R /F3 4 0 R >>
 endobj
-% 'F1': class PDFType1Font 
 2 0 obj
-% Font Helvetica
-<< /BaseFont /Helvetica
- /Encoding /WinAnsiEncoding
- /Name /F1
- /Subtype /Type1
- /Type /Font >>
+<< /BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font >>
 endobj
-% 'F2': class PDFType1Font 
 3 0 obj
-% Font Helvetica-Bold
-<< /BaseFont /Helvetica-Bold
- /Encoding /WinAnsiEncoding
- /Name /F2
- /Subtype /Type1
- /Type /Font >>
+<< /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font >>
 endobj
-% 'F3': class PDFType1Font 
 4 0 obj
-% Font Courier
-<< /BaseFont /Courier
- /Encoding /WinAnsiEncoding
- /Name /F3
- /Subtype /Type1
- /Type /Font >>
+<< /BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font >>
 endobj
-% 'Annot.NUMBER1': class PDFDictionary 
 5 0 obj
-<< /A << /S /URI
- /Type /Action
- /URI (http://www.maanmittauslaitos.fi/ilmaisetaineistot) >>
- /Border [ 0
- 0
- 0 ]
- /Rect [ 82.69291
- 454.3736
- 532.5827
- 466.3736 ]
- /Subtype /Link
- /Type /Annot >>
+<< /A << /S /URI /Type /Action /URI (http://www.maanmittauslaitos.fi/ilmaisetaineistot) >> /Border [ 0 0 0 ] /Rect [ 82.69291 454.3736 532.5827 466.3736 ] /Subtype /Link /Type /Annot >>
 endobj
-% 'Page1': class PDFPage 
 6 0 obj
-% Page dictionary
-<< /Annots [ 5 0 R ]
- /Contents 17 0 R
- /MediaBox [ 0
- 0
- 595.2756
- 841.8898 ]
- /Parent 16 0 R
- /Resources << /Font 1 0 R
- /ProcSet [ /PDF
- /Text
- /ImageB
- /ImageC
- /ImageI ] >>
- /Rotate 0
- /Trans <<  >>
- /Type /Page >>
+<< /Annots [ 5 0 R ] /Contents 17 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 16 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
+  /Trans <<  >> /Type /Page >>
 endobj
-% 'Page2': class PDFPage 
 7 0 obj
-% Page dictionary
-<< /Contents 18 0 R
- /MediaBox [ 0
- 0
- 595.2756
- 841.8898 ]
- /Parent 16 0 R
- /Resources << /Font 1 0 R
- /ProcSet [ /PDF
- /Text
- /ImageB
- /ImageC
- /ImageI ] >>
- /Rotate 0
- /Trans <<  >>
- /Type /Page >>
+<< /Contents 18 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 16 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
-% 'Page3': class PDFPage 
 8 0 obj
-% Page dictionary
-<< /Contents 19 0 R
- /MediaBox [ 0
- 0
- 595.2756
- 841.8898 ]
- /Parent 16 0 R
- /Resources << /Font 1 0 R
- /ProcSet [ /PDF
- /Text
- /ImageB
- /ImageC
- /ImageI ] >>
- /Rotate 0
- /Trans <<  >>
- /Type /Page >>
+<< /Contents 19 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 16 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
-% 'Page4': class PDFPage 
 9 0 obj
-% Page dictionary
-<< /Contents 20 0 R
- /MediaBox [ 0
- 0
- 595.2756
- 841.8898 ]
- /Parent 16 0 R
- /Resources << /Font 1 0 R
- /ProcSet [ /PDF
- /Text
- /ImageB
- /ImageC
- /ImageI ] >>
- /Rotate 0
- /Trans <<  >>
- /Type /Page >>
+<< /Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 16 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
-% 'R10': class PDFCatalog 
 10 0 obj
-% Document Root
-<< /Outlines 12 0 R
- /PageLabels 21 0 R
- /PageMode /UseNone
- /Pages 16 0 R
- /Type /Catalog >>
+<< /Outlines 12 0 R /PageLabels 21 0 R /PageMode /UseNone /Pages 16 0 R /Type /Catalog >>
 endobj
-% 'R11': class PDFInfo 
 11 0 obj
-<< /Author ()
- /CreationDate (D:20120220222019-02'00')
- /Creator (\(unspecified\))
- /Keywords ()
- /Producer (ReportLab PDF Library - www.reportlab.com)
- /Subject (\(unspecified\))
- /Title (SQLxMap) >>
+<< /Author () /CreationDate (D:20150321233909-02'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
+  /Title (SQLxMap) >>
 endobj
-% 'R12': class PDFOutlines 
 12 0 obj
-<< /Count 3
- /First 13 0 R
- /Last 15 0 R
- /Type /Outlines >>
+<< /Count 3 /First 13 0 R /Last 15 0 R /Type /Outlines >>
 endobj
-% 'Outline.0': class OutlineEntryObject 
 13 0 obj
-<< /Dest [ 6 0 R
- /XYZ
- 62.69291
- 689.0236
- 0 ]
- /Next 14 0 R
- /Parent 12 0 R
- /Title (K\344ytt\366ohjeet) >>
+<< /Dest [ 6 0 R /XYZ 62.69291 689.0236 0 ] /Next 14 0 R /Parent 12 0 R /Title (K\344ytt\366ohjeet) >>
 endobj
-% 'Outline.1': class OutlineEntryObject 
 14 0 obj
-<< /Dest [ 6 0 R
- /XYZ
- 62.69291
- 302.2187
- 0 ]
- /Next 15 0 R
- /Parent 12 0 R
- /Prev 13 0 R
- /Title (Toiminnot) >>
+<< /Dest [ 6 0 R /XYZ 62.69291 298.4236 0 ] /Next 15 0 R /Parent 12 0 R /Prev 13 0 R /Title (Toiminnot) >>
 endobj
-% 'Outline.2': class OutlineEntryObject 
 15 0 obj
-<< /Dest [ 7 0 R
- /XYZ
- 62.69291
- 447.0236
- 0 ]
- /Parent 12 0 R
- /Prev 14 0 R
- /Title (SQL-kyselyj\344) >>
+<< /Dest [ 7 0 R /XYZ 62.69291 459.0236 0 ] /Parent 12 0 R /Prev 14 0 R /Title (SQL-kyselyj\344) >>
 endobj
-% 'R16': class PDFPages 
 16 0 obj
-% page tree
-<< /Count 4
- /Kids [ 6 0 R
- 7 0 R
- 8 0 R
- 9 0 R ]
- /Type /Pages >>
+<< /Count 4 /Kids [ 6 0 R 7 0 R 8 0 R 9 0 R ] /Type /Pages >>
 endobj
-% 'R17': class PDFStream 
 17 0 obj
-% page stream
-<< /Length 6605 >>
+<< /Length 6450 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
 1 0 0 1 62.69291 741.0236 cm
 q
-BT 1 0 0 1 0 4 Tm 188.8249 0 Td 24 TL /F2 20 Tf 0 0 0 rg (SQLxMap) Tj T* -188.8249 0 Td ET
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 188.8249 0 Td (SQLxMap) Tj T* -188.8249 0 Td ET
 Q
 Q
 q
 1 0 0 1 62.69291 719.0236 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQLxMap --- geometriatietoa sis\344lt\344vien SQL-kyselyjen visualisoiminen) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (SQLxMap --- geometriatietoa sis\344lt\344vien SQL-kyselyjen visualisoiminen) Tj T* ET
 Q
 Q
 q
@@ -321,12 +176,12 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Sovelluksen k\344ynnist\344minen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 406.2187 cm
+1 0 0 1 62.69291 402.4236 cm
 q
 q
-.849403 0 0 .849403 0 0 cm
+1 0 0 1 0 0 cm
 q
-1 0 0 1 6.6 7.770163 cm
+1 0 0 1 6.6 6.6 cm
 q
 .662745 .662745 .662745 RG
 .5 w
@@ -342,58 +197,58 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 386.2187 cm
+1 0 0 1 62.69291 382.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Sovellus suorittaa heti muutaman kysely tietokantaan ja n\344ytt\344\344 ne karttaikkunassa.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 344.2187 cm
+1 0 0 1 62.69291 340.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 4.482196 Tw (Sovellus t\344ytt\344\344 Kyselyikkunan valmiilla esimerkkikyselyill\344. Osa kyselyist\344 tarvitsee MML:n 1:1m) Tj T* 0 Tw .373314 Tw (aineiston, mutta osa kyselyist\344 ei k\344yt\344 mit\344\344n taulua vaan generoi geometriat laskennallisesti \("Verkosto) Tj T* 0 Tw (maantieteellisiss\344 koordinaateissa" ja "Mandelbrot"\).) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 314.2187 cm
+1 0 0 1 62.69291 310.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.818863 Tw (Huom! Karttan\344kym\344n l\344hennys, loitonnus ja vieritt\344minen tapahtuu t\344ss\344 versiossa vakiomuutoksella.) Tj T* 0 Tw (T\344m\344 tarkoittaa, ett\344 sovelluksella ei voi l\344hent\344\344 suuriin mittakaavoihin.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 281.2187 cm
+1 0 0 1 62.69291 277.4236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Toiminnot) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 269.2187 cm
+1 0 0 1 62.69291 265.4236 cm
 Q
 q
-1 0 0 1 62.69291 269.2187 cm
+1 0 0 1 62.69291 265.4236 cm
 Q
 q
-1 0 0 1 62.69291 233.2187 cm
+1 0 0 1 62.69291 235.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n vieritt\344minen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Nuolin\344pp\344imet \(tai "H", "J", "K", "L"\)) Tj T* ET
@@ -403,31 +258,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 233.2187 cm
+1 0 0 1 62.69291 229.4236 cm
 Q
 q
-1 0 0 1 62.69291 233.2187 cm
-Q
-q
-1 0 0 1 62.69291 197.2187 cm
+1 0 0 1 62.69291 199.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n l\344hent\344minen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Plus \(tai hiiren rullapainike\)) Tj T* ET
@@ -437,31 +289,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 197.2187 cm
+1 0 0 1 62.69291 193.4236 cm
 Q
 q
-1 0 0 1 62.69291 197.2187 cm
-Q
-q
-1 0 0 1 62.69291 161.2187 cm
+1 0 0 1 62.69291 163.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttan\344kym\344n loitontaminen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Miinus \(tai hiiren rullapainike\)) Tj T* ET
@@ -471,178 +320,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 161.2187 cm
+1 0 0 1 62.69291 157.4236 cm
 Q
 q
-1 0 0 1 62.69291 161.2187 cm
-Q
-q
-1 0 0 1 62.69291 101.2187 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 45 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 45 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttatason l\344pin\344kyvyyden muuttaminen:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .493615 Tw (Valitse taso tasovalikosta ja muuta l\344pin\344kyvyytt\344 liukukytkimest\344. Erityisesti kysely "Hae Helsinki ja) Tj T* 0 Tw 2.095976 Tw (rekursiivistesti kaikki kunnat, jotka ..." on mielenkiintoinen \(ja paljastaa pienen kombinatoriikkaan) Tj T* 0 Tw (liittyv\344n ongelman rekursiivisen kyselyn muotoilussa...\)) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 101.2187 cm
-Q
-q
-1 0 0 1 62.69291 101.2187 cm
-Q
-q
-1 0 0 1 62.69291 77.21867 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 9 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen Kyselyikkunassa:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-Q
-Q
- 
-endstream
-endobj
-% 'R18': class PDFStream 
-18 0 obj
-% page stream
-<< /Length 6211 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 693.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 6 59 Tm  T* ET
-q
-1 0 0 1 23 51 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Avaa Kyselyikkuna Tietokantakysely-painikkeesta.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 23 51 cm
-Q
-q
-1 0 0 1 23 51 cm
-Q
-q
-1 0 0 1 23 33 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Muokkaa kyselyj\344 ja paina "Suorita"-painikketta; tai) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 23 33 cm
-Q
-q
-1 0 0 1 23 33 cm
-Q
-q
-1 0 0 1 23 3 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 15 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.454418 Tw (Valitse kyselyj\344 Kyselyikkunassa tai miss\344 tahansa muussa ikkunassa \(selain, tekstieditori,) Tj T* 0 Tw (terminaali, ...\) ja paina "Suorita valinta".) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 693.0236 cm
-Q
-q
-1 0 0 1 62.69291 693.0236 cm
-Q
-q
-1 0 0 1 62.69291 639.0236 cm
+1 0 0 1 62.69291 103.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -656,71 +337,237 @@ q
 1 0 0 1 23 39 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen leikep\366yd\344lt\344:) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Karttatason l\344pin\344kyvyyden muuttaminen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 33 cm
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .493615 Tw (Valitse taso tasovalikosta ja muuta l\344pin\344kyvyytt\344 liukukytkimest\344. Erityisesti kysely "Hae Helsinki ja) Tj T* 0 Tw 2.095976 Tw (rekursiivistesti kaikki kunnat, jotka ..." on mielenkiintoinen \(ja paljastaa pienen kombinatoriikkaan) Tj T* 0 Tw (liittyv\344n ongelman rekursiivisen kyselyn muotoilussa...\)) Tj T* ET
+Q
 Q
 q
-1 0 0 1 23 33 cm
+Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 62.69291 97.42362 cm
+Q
+q
+1 0 0 1 62.69291 79.42362 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 15 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 4.875976 Tw (Valitse kyselyj\344 miss\344 tahansa ikkunassa \(selain, tekstieditori, terminaali, ...\) ja paina) Tj T* 0 Tw ("Tietokantakysely leikep\366yd\344lt\344".) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-1 0 0 1 23 3 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 639.0236 cm
-Q
-q
-1 0 0 1 62.69291 639.0236 cm
-Q
-q
-1 0 0 1 62.69291 603.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 21 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
+1 0 0 1 23 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen Kyselyikkunassa:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+Q
+Q
+ 
+endstream
+endobj
+18 0 obj
+<< /Length 6148 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 705.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 47 Tm  T* ET
+q
+1 0 0 1 23 45 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Avaa Kyselyikkuna Tietokantakysely-painikkeesta.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 39 cm
+Q
+q
+1 0 0 1 23 27 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Muokkaa kyselyj\344 ja paina "Suorita"-painikketta; tai) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
 1 0 0 1 23 21 cm
+Q
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.454418 Tw (Valitse kyselyj\344 Kyselyikkunassa tai miss\344 tahansa muussa ikkunassa \(selain, tekstieditori,) Tj T* 0 Tw (terminaali, ...\) ja paina "Suorita valinta".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 699.0236 cm
+Q
+q
+1 0 0 1 62.69291 651.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (SQL-kyselyn suorittaminen leikep\366yd\344lt\344:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 27 cm
+Q
+q
+1 0 0 1 23 27 cm
+Q
+q
+1 0 0 1 23 15 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Valitse kyselyj\344 miss\344 tahansa ikkunassa \(selain, tekstieditori, terminaali, ...\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 9 cm
+Q
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Paina "Tietokantakysely leikep\366yd\344lt\344" -nappia tai v\344lily\366nti\344.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 645.0236 cm
+Q
+q
+1 0 0 1 62.69291 615.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Kaikkien karttatasojen poistaminen:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Paina "Poista karttatasot".) Tj T* ET
@@ -730,31 +577,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 603.0236 cm
+1 0 0 1 62.69291 609.0236 cm
 Q
 q
-1 0 0 1 62.69291 603.0236 cm
-Q
-q
-1 0 0 1 62.69291 567.0236 cm
+1 0 0 1 62.69291 579.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 kaikki karttatasot:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Paina "N\344yt\344 kaikki" \(tai "R"\)) Tj T* ET
@@ -764,31 +608,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 567.0236 cm
+1 0 0 1 62.69291 573.0236 cm
 Q
 q
-1 0 0 1 62.69291 567.0236 cm
-Q
-q
-1 0 0 1 62.69291 531.0236 cm
+1 0 0 1 62.69291 543.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 k\344ytt\366ohjeet:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Help ==) Tj (> Contents) Tj T* ET
 Q
@@ -797,31 +638,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 531.0236 cm
+1 0 0 1 62.69291 537.0236 cm
 Q
 q
-1 0 0 1 62.69291 531.0236 cm
-Q
-q
-1 0 0 1 62.69291 495.0236 cm
+1 0 0 1 62.69291 507.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (N\344yt\344 tietoja ohjelmasta:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Help ==) Tj (> About) Tj T* ET
 Q
@@ -830,31 +668,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 495.0236 cm
+1 0 0 1 62.69291 501.0236 cm
 Q
 q
-1 0 0 1 62.69291 495.0236 cm
-Q
-q
-1 0 0 1 62.69291 459.0236 cm
+1 0 0 1 62.69291 471.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 21 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
 Q
 Q
 q
-1 0 0 1 23 21 cm
+1 0 0 1 23 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Lopeta ohjelma:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 23 3 cm
+1 0 0 1 23 -3 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (File ==) Tj (> Exit) Tj T* ET
 Q
@@ -863,31 +698,28 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 459.0236 cm
+1 0 0 1 62.69291 471.0236 cm
 Q
 q
-1 0 0 1 62.69291 459.0236 cm
-Q
-q
-1 0 0 1 62.69291 426.0236 cm
+1 0 0 1 62.69291 438.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (SQL-kyselyj\344) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 408.0236 cm
+1 0 0 1 62.69291 420.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Esimerkkikyselyj\344 \(suurin piirtein samat kyselyt ovat sovelluksen kyselyikkunassa\):) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 105.213 cm
+1 0 0 1 62.69291 98.82362 cm
 q
 q
-.941286 0 0 .941286 0 0 cm
+1 0 0 1 0 0 cm
 q
-1 0 0 1 6.6 7.011687 cm
+1 0 0 1 6.6 6.6 cm
 q
 .662745 .662745 .662745 RG
 .5 w
@@ -904,9 +736,7 @@ Q
  
 endstream
 endobj
-% 'R19': class PDFStream 
 19 0 obj
-% page stream
 << /Length 2487 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -953,9 +783,7 @@ Q
  
 endstream
 endobj
-% 'R20': class PDFStream 
 20 0 obj
-% page stream
 << /Length 555 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -982,78 +810,54 @@ Q
  
 endstream
 endobj
-% 'R21': class PDFPageLabels 
 21 0 obj
-% Document Root
-<< /Nums [ 0
- 22 0 R
- 1
- 23 0 R
- 2
- 24 0 R
- 3
- 25 0 R ] >>
+<< /Nums [ 0 22 0 R 1 23 0 R 2 24 0 R 3 25 0 R ] >>
 endobj
-% 'R22': class PDFPageLabel 
 22 0 obj
-% None
-<< /S /D
- /St 1 >>
+<< /S /D /St 1 >>
 endobj
-% 'R23': class PDFPageLabel 
 23 0 obj
-% None
-<< /S /D
- /St 2 >>
+<< /S /D /St 2 >>
 endobj
-% 'R24': class PDFPageLabel 
 24 0 obj
-% None
-<< /S /D
- /St 3 >>
+<< /S /D /St 3 >>
 endobj
-% 'R25': class PDFPageLabel 
 25 0 obj
-% None
-<< /S /D
- /St 4 >>
+<< /S /D /St 4 >>
 endobj
 xref
 0 26
 0000000000 65535 f
-0000000113 00000 n
-0000000233 00000 n
-0000000398 00000 n
-0000000573 00000 n
-0000000746 00000 n
-0000000999 00000 n
-0000001298 00000 n
-0000001577 00000 n
-0000001856 00000 n
-0000002136 00000 n
-0000002295 00000 n
-0000002550 00000 n
-0000002675 00000 n
-0000002853 00000 n
-0000003037 00000 n
-0000003196 00000 n
-0000003327 00000 n
-0000010031 00000 n
-0000016341 00000 n
-0000018927 00000 n
-0000019584 00000 n
-0000019716 00000 n
-0000019793 00000 n
-0000019870 00000 n
-0000019947 00000 n
+0000000075 00000 n
+0000000129 00000 n
+0000000239 00000 n
+0000000354 00000 n
+0000000462 00000 n
+0000000666 00000 n
+0000000893 00000 n
+0000001102 00000 n
+0000001311 00000 n
+0000001520 00000 n
+0000001629 00000 n
+0000001847 00000 n
+0000001924 00000 n
+0000002046 00000 n
+0000002172 00000 n
+0000002291 00000 n
+0000002372 00000 n
+0000008879 00000 n
+0000015084 00000 n
+0000017628 00000 n
+0000018239 00000 n
+0000018310 00000 n
+0000018347 00000 n
+0000018384 00000 n
+0000018421 00000 n
 trailer
 << /ID 
- % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\002\244\276EE:q\373aoK\)\001kfT) (\002\244\276EE:q\373aoK\)\001kfT)] 
-
- /Info 11 0 R
- /Root 10 0 R
- /Size 26 >>
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com)
+ [(\272\243\237\240\335M\200\252rO\025\241c\327b\315) (\272\243\237\240\335M\200\252rO\025\241c\327b\315)]
+ /Info 11 0 R /Root 10 0 R /Size 26 >>
 startxref
-19994
+18458
 %%EOF

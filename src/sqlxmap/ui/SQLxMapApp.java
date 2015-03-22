@@ -288,7 +288,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
     private void mapPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mapPanelKeyPressed
         Logger.getLogger(SQLxMapApp.class.getName()).log(Level.FINE, "mapPanelKeyPressed: ''{0}'' ({1})", 
                 new Object[]{evt.getKeyChar(), evt.getKeyCode()});
-        
+
         Envelope envelope = new Envelope(mapPanel.getEnvelope());
         
         switch(evt.getKeyCode()) {
@@ -323,6 +323,13 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
             case 32:
                 executeFromClipboard();
                 break;
+            case 114:
+                // TODO: poista ensin kaikki tasot, resetoi värit
+                mapPanel.poistaKarttatasot();
+                karttatasoComboBox.removeAllItems();
+                varisarja = new SatunnainenVari(0.0);
+                executeFromClipboard();
+                break;
         }
 
         if (!envelope.equals(mapPanel.getEnvelope())) {
@@ -346,45 +353,7 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
 + "       FROM (SELECT generate_series(10, 40, 1) x) x\n"
 + "       JOIN (SELECT generate_series(50, 80, 1) y) y\n"
 + "       ON true;\n"
-+ "\n"
-+ "-- Maakuntia\n"
-+ "SELECT the_geom FROM miljoona.maaku1_p;\n"
-+ "\n"
-+ "-- Rannikkoviivaa\n"
-+ "SELECT the_geom FROM miljoona.coast_l;\n"
-+ "\n"
-+ "-- Rautateitä\n"
-+ "SELECT the_geom FROM miljoona.railway;\n"
-+ "\n"
-+ "-- Kaupunkeja, joissa yli 3000 asukasta\n"
-+ "SELECT the_geom FROM miljoona.cityp WHERE asulkm1999 >= 3000;\n"
-+ "\n"
-+ "-- Seutukuntia Ahvenanmaan suunnalla\n"
-+ "SELECT the_geom FROM miljoona.kunta1_p WHERE seutukunta::int BETWEEN 200 AND 300;\n"
-+ "\n"
-+ "-- Helsinki\n"
-+ "SELECT the_geom FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki';\n"
-+ "\n"
-+ "--\n"
-+ "-- Hae Helsinki ja rekursiivisesti kaikki kunnat, jotka 'koskettavat'\n"
-+ "-- Helsinkiä, ts. niiden leikkaus on piste tai viiva.\n"
-+ "--\n"
-+ "-- Rekursion päättymisehto on tässä: t.n < 5\n"
-+ "--\n"
-+ "-- Varoitus! Suoritusaika kasvaa eksponentiaalisesti, 't.n < 7':kin\n"
-+ "-- alkoi jo epäilyttää.\n"
-+ "--\n"
-+ "WITH RECURSIVE t(the_geom, n) AS (\n"
-+ "     SELECT the_geom, 1 FROM miljoona.kunta1_p WHERE kunta_ni1 = 'Helsinki'\n"
-+ "   UNION ALL\n"
-+ "     SELECT kunta1_p.the_geom, t.n + 1 \n"
-+ "     FROM miljoona.kunta1_p, t\n"
-+ "         WHERE ST_Touches(t.the_geom, kunta1_p.the_geom) AND t.n < 5\n"
-+ ")\n"
-+ "SELECT ST_Union(the_geom) FROM t\n"
-+ "GROUP BY t.n\n"
-+ "ORDER BY t.n DESC;\n"
-+ "\n"
++ "\n"                
 + "-- Mandelbrot SQL:llä\n"
 + "-- (vaatii Common Table Expression (CTE)-tuen).\n"
 + "--\n"
@@ -647,6 +616,9 @@ public class SQLxMapApp extends javax.swing.JFrame implements Observer {
                 mapPanel.lisaaKarttataso(karttataso);
                 mapPanel.repaint();
                 karttatasoComboBox.addItem(karttataso);
+                
+                // Hmm...
+                mapPanel.laajennaNakymaa(karttataso.getEnvelope());
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SQLxMapApp.class.getName()).log(Level.SEVERE, null, ex);

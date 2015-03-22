@@ -77,7 +77,8 @@ Toiminnot
 * SQL-kyselyn suorittaminen leikepöydältä:
 
   1. Valitse kyselyjä missä tahansa ikkunassa (selain, tekstieditori,
-     terminaali, ...) ja paina "Tietokantakysely leikepöydältä".
+     terminaali, ...)
+  2. Paina "Tietokantakysely leikepöydältä" -nappia tai välilyöntiä (SPACE).
 
 * Kaikkien karttatasojen poistaminen:
 

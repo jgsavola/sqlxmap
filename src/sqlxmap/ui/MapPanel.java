@@ -11,6 +11,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import com.vividsolutions.jts.geom.util.AffineTransformation;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sqlxmap.Karttataso;
 import sqlxmap.LayerData;
 import sqlxmap.SatunnainenVari;
@@ -114,7 +116,11 @@ public class MapPanel extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D)g;
 
         for (Karttataso karttataso : karttatasot) {
-            karttataso.piirra(g2, envelope, affine);
+            try {
+                karttataso.piirra(g2, envelope, affine);
+            } catch (Exception ex) {
+                Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         long stopNano = java.lang.System.nanoTime();
@@ -205,7 +211,7 @@ public class MapPanel extends javax.swing.JPanel {
         repaint();
     }
     
-    private void laajennaNakymaa(Envelope envelope) {
+    public void laajennaNakymaa(Envelope envelope) {
         this.envelope.expandToInclude(envelope);
 
         korjaaKuvasuhde();
